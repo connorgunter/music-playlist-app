@@ -27,7 +27,5 @@ function newPlaylist(req, res) {
 //   }
 
 module.exports = {
-  //index,
-  // create,
   new: newPlaylist,
 };
