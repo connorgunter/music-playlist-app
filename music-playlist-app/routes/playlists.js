@@ -7,4 +7,5 @@ const playlistCtrl = require('../controllers/playlists')
 
 router.get('/new', playlistCtrl.new)
 
+router.post('/', playlistCtrl.create)
 module.exports = router;
