@@ -4,23 +4,21 @@ function newPlaylist(req, res) {
   res.render("playlists/new", { title: "Create a Playlist", errorMsg: "" });
 }
 
-// async function create(req, res) {
-//   for (let key in req.body) {
-//     if (req.body[key] === "") delete req.body[key];
-//   }
-//   try {
-//     Playlist.create(req.body);
-//     res.redirect("/playlist");
-//   } catch (err) {
-//     console.log("create error", err);
-//     res.render("playlists/new", { errorMsg: err.message });
-//   }
-// }
+async function create(req, res) {
+  try {
+    const newPlaylist = await Playlist.create(req.body)
+    console.log(newPlaylist)
+    res.redirect("/playlists/new");
+  } catch (err) {
+    console.log("create error", err);
+    res.render("playlists/new", { errorMsg: err.message });
+  }
+}
 
 // async function index(req, res) {
 //     try {
-//       const playlist = await Playlist.find().sort("yearOpened");
-//       res.render("playlists/index", { title: 'all playlist', playlist });
+//       const playlist = await Playlist.find()
+//       res.render("playlists/index", { title: 'All Playlist', playlist });
 //     } catch (err) {
 //       console.log("index error", err);
 //     }
@@ -28,4 +26,5 @@ function newPlaylist(req, res) {
 
 module.exports = {
   new: newPlaylist,
+  create
 };
