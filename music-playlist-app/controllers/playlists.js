@@ -1,7 +1,7 @@
 const Playlist = require("../models/playlist");
 
 function newPlaylist(req, res) {
-  res.render("playlists/new", { title: "Add Playlists", errorMsg: "" });
+  res.render("playlists/new", { title: "Create a Playlist", errorMsg: "" });
 }
 
 // async function create(req, res) {
