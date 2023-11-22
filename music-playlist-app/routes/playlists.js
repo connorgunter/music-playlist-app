@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
+const playlistCtrl = require('..controllers/playlists')
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+// GET /playlists
+router.get('/', playlistCtrl.index)
+
+router.get('/new', playlistCtrl.new)
 
 module.exports = router;
