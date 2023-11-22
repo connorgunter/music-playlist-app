@@ -20,7 +20,7 @@ async function create(req, res, next) {
 async function show(req, res) {
   try {
     const playlist = await Playlist.findById(req.params.id);
-    res.render("playlists/show", { title: "Playlist Details", playlist });
+    res.render("playlists/show", { title: `${playlist.name}`, playlist });
   } catch (err) {
     console.log(err);
   }
