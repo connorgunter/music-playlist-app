@@ -4,7 +4,8 @@ function newPlaylist(req, res) {
   res.render("playlists/new", { title: "Create a Playlist", errorMsg: "" });
 }
 
-async function create(req, res) {
+async function create(req, res, next) {
+  req.body.name = req.body.name.trim()
   try {
     const newPlaylist = await Playlist.create(req.body)
     console.log(newPlaylist)
@@ -12,6 +13,7 @@ async function create(req, res) {
   } catch (err) {
     console.log("create error", err);
     res.render("playlists/new", { errorMsg: err.message });
+    next(Error(err))
   }
 }
 
