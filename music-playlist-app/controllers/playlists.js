@@ -5,15 +5,24 @@ function newPlaylist(req, res) {
 }
 
 async function create(req, res, next) {
-  req.body.name = req.body.name.trim()
+  req.body.name = req.body.name.trim();
   try {
-    const newPlaylist = await Playlist.create(req.body)
-    console.log(newPlaylist)
-    res.redirect("/playlists/new");
+    const newPlaylist = await Playlist.create(req.body);
+    console.log(newPlaylist);
+    res.redirect(`/playlists/${newPlaylist._id}`);
   } catch (err) {
     console.log("create error", err);
     res.render("playlists/new", { errorMsg: err.message });
-    next(Error(err))
+    next(Error(err));
+  }
+}
+
+async function show(req, res) {
+  try {
+    const playlist = await Playlist.findById(req.params.id);
+    res.render("playlists/show", { title: `${playlist.name}`, playlist });
+  } catch (err) {
+    console.log(err);
   }
 }
 
@@ -28,5 +37,6 @@ async function create(req, res, next) {
 
 module.exports = {
   new: newPlaylist,
-  create
+  create,
+  show,
 };
