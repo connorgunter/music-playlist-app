@@ -1,16 +1,16 @@
 <%- include('../partials/header') %>
 <form action="/playlists" method="POST">
   <div>
-    <label>Name:</label>
-    <input type="text" name="name" required/>
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name" required/>
   </div><br>
   <div>
-    <label>Description:</label>
-    <textarea name="description" cols="30" rows="2" required></textarea>
+    <label for="description">Description:</label>
+    <textarea name="description" cols="30" rows="2"id="description" required></textarea>
   </div><br>
   <div>
-    <label>Mood:</label>
-    <select name="mood">
+    <label for="mood">Mood:</label>
+    <select name="mood" id="mood">
         <option value="Chill">Chill</option>
         <option value="Cozy">Cozy</option>
         <option value="Feel-good">Feel-good</option>
