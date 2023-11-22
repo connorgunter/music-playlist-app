@@ -26,17 +26,18 @@ async function show(req, res) {
   }
 }
 
-// async function index(req, res) {
-//     try {
-//       const playlist = await Playlist.find()
-//       res.render("playlists/index", { title: 'All Playlist', playlist });
-//     } catch (err) {
-//       console.log("index error", err);
-//     }
-//   }
+async function index(req, res) {
+  try {
+    const myPlaylists = await Playlist.find().sort("createdAt");
+    res.render("playlists/index", { title: "All Playlist", myPlaylists });
+  } catch (err) {
+    console.log("index error", err);
+  }
+}
 
 module.exports = {
   new: newPlaylist,
   create,
   show,
+  index,
 };

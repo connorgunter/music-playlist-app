@@ -1,3 +1,25 @@
 <%- include('../partials/header') %>
-
+<div class="main-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Name: </th>
+                <th>Description: </th>
+                <th>Mood: </th>
+                <th>Created: </th>
+            </tr>
+        </thead>
+        <tbody>
+            <% myPlaylists.forEach(function(p){%>
+                <tr>
+                    <td><%= p.name  %></td>
+                    <td><%= p.description %></td>
+                    <td><%= p.mood %></td>
+                    <!-- timeAgo to-do -->
+                    <td><%= p.createdAt.toLocaleDateString() %></td>
+                    <%}) %>
+                </tr>
+            </tbody>
+    </table>
+</div>
 <%- include('../partials/footer') %>
