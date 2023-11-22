@@ -26,10 +26,19 @@ async function show(req, res) {
   }
 }
 
-async function index(req, res) {
+async function myIndex(req, res) {
   try {
     const myPlaylists = await Playlist.find().sort("createdAt");
-    res.render("playlists/index", { title: "All Playlist", myPlaylists });
+    res.render("playlists/index", { title: "My Playlists", myPlaylists });
+  } catch (err) {
+    console.log("index error", err);
+  }
+}
+
+async function index(req, res) {
+  try {
+    const allPlaylists = await Playlist.find().sort("likes");
+    res.render("index", { title: "All Playlists", allPlaylists });
   } catch (err) {
     console.log("index error", err);
   }
@@ -39,5 +48,6 @@ module.exports = {
   new: newPlaylist,
   create,
   show,
+  myIndex,
   index,
 };

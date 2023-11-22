@@ -9,5 +9,5 @@ const playlist = require("../models/playlist");
 router.get("/new", playlistCtrl.new);
 router.post("/", playlistCtrl.create);
 router.get("/:id", playlistCtrl.show);
-router.get("/", playlistCtrl.index);
+router.get("/", playlistCtrl.myIndex);
 module.exports = router;
