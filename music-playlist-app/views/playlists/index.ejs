@@ -18,6 +18,7 @@
                     <!-- timeAgo to-do -->
                     <td><%= p.createdAt.toLocaleDateString() %></td>
                     <td><a href="">DETAILS</a><td>
+                    <td><a href="/playlists/<%=p.id%>?_method=DELETE" method="POST"> DELETE </a></td>
                     <%}) %>
                     
                 </tr>
