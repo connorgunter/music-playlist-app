@@ -44,17 +44,15 @@ async function index(req, res) {
   }
 }
 
-async function deletePlaylist(req,res){
+async function deletePlaylist(req, res) {
   try {
-    const playlist =req.params.id;
-    await Playlist.findByIdAndDelete(playlist)
-    res.redirect('/playlists')
+    const playlist = req.params.id;
+    await Playlist.findByIdAndDelete(playlist);
+    res.redirect("/playlists");
+  } catch (err) {
+    console.log("index error", err);
   }
- catch(err){
-  console.log('index error',err)
- }
 }
-
 
 module.exports = {
   new: newPlaylist,
@@ -62,5 +60,5 @@ module.exports = {
   show,
   myIndex,
   index,
-  delete:deletePlaylist,
+  delete: deletePlaylist,
 };
