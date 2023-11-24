@@ -17,8 +17,15 @@
                     <td><%= p.mood %></td>
                     <!-- timeAgo to-do -->
                     <td><%= p.createdAt.toLocaleDateString() %></td>
-                    <td><a href="">DETAILS</a><td>
-                    <td><a href="/playlists/<%=p.id%>?_method=DELETE" method="POST"> DELETE </a></td>
+                    <td> <form method="GET" action="/playlists/<%= p.id %>">
+                        <button type="submit"> DETAILS </button>
+                            </form>
+                            </td>
+                        <td>
+                            <form method="POST" action="/playlists/<%= p.id %>?_method=DELETE">
+                                <button type="submit">DELETE</button>
+                            </form>
+                        </td>
                     <%}) %>
                     
                 </tr>

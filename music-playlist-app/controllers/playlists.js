@@ -46,7 +46,8 @@ async function index(req, res) {
 
 async function deletePlaylist(req,res){
   try {
-    Playlist.deleteOne(req.param.id);
+    const playlist =req.params.id;
+    await Playlist.findByIdAndDelete(playlist)
     res.redirect('/playlists')
   }
  catch(err){
