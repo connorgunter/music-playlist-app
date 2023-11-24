@@ -10,6 +10,13 @@
         <strong>Songs: </strong><%= playlist.song %>
     </div><br>
 <button>Add a Song</button>
+<br><br>
+<div>
+<form method="POST" action="/playlists/<%= playlist.id %>?_method=DELETE">
+<button type="submit">Delete Playlist</button>
+
+</div>
+</form>
 </div>
 
 <%- include('../partials/footer') %>
