@@ -17,7 +17,8 @@
                     <td><%= p.mood %></td>
                     <!-- timeAgo to-do -->
                     <td><%= p.createdAt.toLocaleDateString() %></td>
-                    <td> <form method="GET" action="/playlists/<%= p.id %>">
+                    <td> <!-- Had to make details a form and button to match delete form and button. Method-override only works this way and I tried using attributes and h refs for it and it just doesn't work you have to use event listeners and AJAX. -->
+                        <form method="GET" action="/playlists/<%= p.id %>">
                         <button type="submit"> DETAILS </button>
                             </form>
                             </td>
