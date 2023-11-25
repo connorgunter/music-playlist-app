@@ -1,8 +1,32 @@
 body {
-  padding: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+
+#delete-button {
+  color: red;
+}
+
+#title-header {
+  text-align: center;
+  font-size: 50px;
+  font-family: 'Abril Fatface', serif;
+}
+nav {
+  background: black;
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px;
+}
+
 a {
-  color: #00B7FF;
+  font-size: 20px;
+  text-decoration: none;
+  padding: 10px;
+  color: white;
+}
+a:hover{
+  background: gray;
 }
