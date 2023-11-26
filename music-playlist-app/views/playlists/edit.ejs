@@ -1,0 +1,30 @@
+<%- include('../partials/header') %>
+<form action="/playlists/<%= playlist.id %>?_method=PUT" method="POST">
+  <div>
+    <label for="name">Edit Name:</label>
+    <input type="text" name="name" id="name" value="<%= playlist.name %>" required/>
+  </div><br>
+  <div>
+    <label for="description">Edit Description:</label>
+    <textarea name="description" cols="30" rows="2" id="description" required><%= playlist.description %></textarea>
+  </div><br>
+  <div>
+    <label for="mood">Edit Mood:</label>
+    <select name="mood" id="mood">
+        <!-- TODO: Look into prettier formatting error -->
+        <option value="Chill" <%= playlist.mood === 'Chill' ? 'selected' : '' %>>Chill</option>
+        <option value="Cozy" <%= playlist.mood === 'Cozy' ? 'selected' : '' %>>Cozy</option>
+        <option value="Feel-good" <%= playlist.mood === 'Feel-good' ? 'selected' : '' %>>Feel-good</option>
+        <option value="Nostalgic" <%= playlist.mood === 'Nostalgic' ? 'selected' : '' %>>Nostalgic</option>
+        <option value="Roadtrip" <%= playlist.mood === 'Roadtrip' ? 'selected' : '' %>>Roadtrip</option>
+        <option value="Romantic" <%= playlist.mood === 'Romantic' ? 'selected' : '' %>>Romantic</option>
+        <option value="Sad" <%= playlist.mood === 'Sad' ? 'selected' : '' %>>Sad</option>
+        <option value="Study" <%= playlist.mood === 'Study' ? 'selected' : '' %>>Study</option>
+        <option value="Upbeat" <%= playlist.mood === 'Upbeat' ? 'selected' : '' %>>Upbeat</option>
+        <option value="Workout" <%= playlist.mood === 'Workout' ? 'selected' : '' %>>Workout</option>
+    </select>
+  </div><br>
+  <button type="submit">Update Playlist</button>
+</form>
+<p><%= errorMsg %></p>
+<%- include('../partials/footer') %>

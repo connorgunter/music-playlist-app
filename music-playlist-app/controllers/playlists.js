@@ -54,6 +54,38 @@ async function deletePlaylist(req, res) {
   }
 }
 
+async function edit(req, res) {
+  try {
+    // res.send("Edit page will be here");
+    const playlist = await Playlist.findById(req.params.id);
+    // res.send(playlist)
+    res.render("playlists/edit", {
+      title: "Edit Playlist",
+      playlist,
+      errorMsg: "",
+    });
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+async function update(req, res) {
+  try {
+    const playlist = await Playlist.findById(req.params.id);
+    // rename each property based on edit form values
+    // TODO: note to come back and revisit this approach
+    playlist.name = req.body.name;
+    playlist.description = req.body.description;
+    playlist.mood = req.body.mood;
+    // save the update
+    await playlist.save();
+    console.log(playlist);
+    res.redirect(`/playlists/${req.params.id}`);
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 module.exports = {
   new: newPlaylist,
   create,
@@ -61,4 +93,6 @@ module.exports = {
   myIndex,
   index,
   delete: deletePlaylist,
+  edit,
+  update,
 };

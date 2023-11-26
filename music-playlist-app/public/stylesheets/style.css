@@ -21,12 +21,12 @@ nav {
   border-radius: 10px;
 }
 
-a {
+nav > a {
   font-size: 20px;
   text-decoration: none;
   padding: 10px;
   color: white;
 }
-a:hover{
+nav > a:hover{
   background: gray;
 }
