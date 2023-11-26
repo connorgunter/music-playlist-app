@@ -11,5 +11,6 @@ router.get("/:id/edit", playlistCtrl.edit);
 router.post("/", playlistCtrl.create);
 router.delete("/:id", playlistCtrl.delete);
 // 2. PUT /playlists/:id
+router.put('/:id', playlistCtrl.update)
 
 module.exports = router;
