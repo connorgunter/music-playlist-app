@@ -54,6 +54,21 @@ async function deletePlaylist(req, res) {
   }
 }
 
+async function edit(req, res) {
+  try {
+    // res.send("Edit page will be here");
+    const playlist = await Playlist.findById(req.params.id);
+    // res.send(playlist)
+    res.render("playlists/edit", {
+      title: "Edit Playlist",
+      playlist,
+      errorMsg: "",
+    });
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 module.exports = {
   new: newPlaylist,
   create,
@@ -61,4 +76,5 @@ module.exports = {
   myIndex,
   index,
   delete: deletePlaylist,
+  edit,
 };
