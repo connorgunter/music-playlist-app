@@ -1,8 +1,60 @@
 body {
-  padding: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+
+#delete-button {
+  color: red;
+}
+
+#title-header {
+  text-align: center;
+  font-size: 50px;
+  font-family: 'Abril Fatface', serif;
+}
+nav {
+  background: black;
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+nav > a {
+  font-size: 20px;
+  text-decoration: none;
+  padding: 10px;
+  color: white;
+}
+nav > a:hover{
+  background: gray;
+}
+.main-container,
+#create-form,
+#edit-form {
+  padding: 20px;
+  background-color: rgb(240, 235, 223);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+#create-button, 
+#edit-button {
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+table, th, td {
+  border: 1px solid;
+  border-collapse: collapse;
+  padding: 10px;
 }

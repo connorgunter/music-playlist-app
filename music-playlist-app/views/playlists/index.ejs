@@ -1,2 +1,39 @@
 <%- include('../partials/header') %>
+<div class="main-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Mood</th>
+        <th>Created</th>
+        <th>Details</th>
+        <th>Delete?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% myPlaylists.forEach(function(p){%>
+      <tr>
+        <td><%= p.name %></td>
+        <td><%= p.description %></td>
+        <td><%= p.mood %></td>
+        <!-- timeAgo to-do -->
+        <td><%= p.createdAt.toLocaleDateString() %></td>
+        <td>
+          <!-- <a href="/playlists/<%= p.id %>">DETAILS</a> -->
+          <form method="GET" action="/playlists/<%= p.id %>">
+            <button type="submit">DETAILS</button>
+          </form>
+        </td>
+        <!-- Delete button -->
+        <td>
+            <form method="POST" action="/playlists/<%= p.id %>/?_method=DELETE">
+                <button id="delete-button" type="submit">X</button>
+            </form>
+        </td>
+        <%}) %>
+      </tr>
+    </tbody>
+  </table>
+</div>
 <%- include('../partials/footer') %>

@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 require('dotenv').config()
 require('./config/database')
+const methodOverride =require('method-override')
 
 const indexRouter = require('./routes/index');
 const playlistsRouter = require('./routes/playlists');
@@ -20,7 +21,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(methodOverride('_method'))
 app.use('/', indexRouter);
 app.use('/playlists', playlistsRouter);
 
