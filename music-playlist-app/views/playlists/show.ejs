@@ -11,7 +11,7 @@
   <br /><br />
   <div>
     <form method="POST" action="/playlists/<%= playlist.id %>?_method=DELETE">
-      <button type="submit">Delete Playlist</button>
+      <button onclick="return confirm('Are you sure you want to delete <%= playlist.name %>?')" type="submit">Delete Playlist</button>
     </form>
   </div>
 </section>
