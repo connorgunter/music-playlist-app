@@ -13,9 +13,14 @@
 <body>
     <h1 id="title-header">Playlistify</h1>
     <nav>
-        <a href="/">HOME</a> |
-        <a href="/playlists">MY PLAYLISTS</a> |
-        <a href="/playlists/new">CREATE PLAYLIST</a>
+        <a href="/" <%- title === 'All Playlists' ? 'class="active"' : '' %>>HOME</a> |
+        <% if (user) { %>
+        <a href="/playlists" <%- title === 'My Playlists' ? 'class="active"' : '' %>>MY PLAYLISTS</a> |
+        <a href="/playlists/new" <%- title === 'Create a Playlist' ? 'class="active"' : '' %>>CREATE PLAYLIST</a>
+        <a href="/logout">LOG OUT</a>
+        <% } else { %>
+          <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+        <% } %>
     </nav>
     <header>
         <h1><%= title %></h1>
