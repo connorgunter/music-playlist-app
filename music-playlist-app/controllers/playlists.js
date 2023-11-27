@@ -1,5 +1,4 @@
 const Playlist = require("../models/playlist");
-// const User = require("../models/user");
 
 function newPlaylist(req, res) {
   req.body.user = req.user._id;
@@ -15,8 +14,7 @@ async function create(req, res, next) {
   req.body.userAvatar = req.user.avatar;
   try {
     const newPlaylist = await Playlist.create(req.body);
-
-    console.log(newPlaylist);
+    // console.log(newPlaylist);
     res.redirect(`/playlists/${newPlaylist._id}`);
   } catch (err) {
     console.log("create error", err);
@@ -63,11 +61,6 @@ async function index(req, res) {
 async function deletePlaylist(req, res) {
   try {
     const playlistId = req.params.id;
-    const userId = req.user._id;
-    const playlist = await Playlist.findOne({ _id: playlistId, user: userId });
-    if (!playlist) {
-      return res.redirect("/playlists/show");
-    }
     req.body.user = req.user._id;
     req.body.userName = req.user.name;
     req.body.userAvatar = req.user.avatar;
@@ -105,11 +98,11 @@ async function update(req, res) {
     playlist.description = req.body.description;
     playlist.mood = req.body.mood;
     //
-    console.log(req.body);
+    // console.log(req.body);
 
     // save the update
     await playlist.save();
-    console.log(playlist);
+    // console.log(playlist);
     res.redirect(`/playlists/${req.params.id}`);
   } catch (err) {
     console.log(err);
