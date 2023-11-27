@@ -3,7 +3,8 @@ const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
-var session = require("express-session");
+const session = require("express-session");
+const passport = require("passport");
 require("dotenv").config();
 require("./config/database");
 const methodOverride = require("method-override");
@@ -30,6 +31,9 @@ app.use(
     saveUninitialized: true,
   })
 );
+// mount passport
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(methodOverride("_method"));
 app.use("/", indexRouter);
 app.use("/playlists", playlistsRouter);
