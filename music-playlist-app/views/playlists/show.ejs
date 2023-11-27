@@ -1,19 +1,2 @@
 <%- include('../partials/header') %>
-<section class="main-container">
-    <a href="/playlists/<%= playlist.id %>/edit">Edit Playlist</a>
-  <div><strong>Description: </strong><%= playlist.description %></div>
-  <br />
-  <div><strong>Mood: </strong><%= playlist.mood %></div>
-  <br />
-  <div><strong>Songs: </strong><%= playlist.song %></div>
-  <br />
-  <button>Add a Song</button>
-  <br /><br />
-  <div>
-    <form method="POST" action="/playlists/<%= playlist.id %>?_method=DELETE">
-      <button onclick="return confirm('Are you sure you want to delete <%= playlist.name %>?')" type="submit">Delete Playlist</button>
-    </form>
-  </div>
-</section>
-
 <%- include('../partials/footer') %>

@@ -1,8 +1,9 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const playlistCtrl = require("../controllers/playlists");
 
 /* GET home page. */
-router.get("/", playlistCtrl.index);
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Express' });
+});
 
 module.exports = router;

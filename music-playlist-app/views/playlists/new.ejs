@@ -1,29 +1,2 @@
 <%- include('../partials/header') %>
-<form id="create-form" action="/playlists" method="POST">
-  <div>
-    <label for="name">Name:</label>
-    <input type="text" name="name" id="name" required/>
-  </div><br>
-  <div>
-    <label for="description">Description:</label>
-    <textarea name="description" cols="30" rows="2" id="description" required></textarea>
-  </div><br>
-  <div>
-    <label for="mood">Mood:</label>
-    <select name="mood" id="mood">
-        <option value="Chill">Chill</option>
-        <option value="Cozy">Cozy</option>
-        <option value="Feel-good">Feel-good</option>
-        <option value="Nostalgic">Nostalgic</option>
-        <option value="Roadtrip">Roadtrip</option>
-        <option value="Romantic">Romantic</option>
-        <option value="Sad">Sad</option>
-        <option value="Study">Study</option>
-        <option value="Upbeat">Upbeat</option>
-        <option value="Workout">Workout</option>
-    </select>
-  </div><br>
-  <button id="create-button" type="submit">Create Playlist</button>
-</form>
-<p><%= errorMsg %></p>
 <%- include('../partials/footer') %>
