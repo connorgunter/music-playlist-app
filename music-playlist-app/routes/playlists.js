@@ -1,16 +1,16 @@
 const express = require("express");
 const router = express.Router();
-const playlistCtrl = require("../controllers/playlists");
+const playlistsCtrl = require("../controllers/playlists");
 
-router.get("/", playlistCtrl.myIndex);
+router.get("/playlists/", playlistsCtrl.myIndex);
 // Remember: new route always bfore show
-router.get("/new", playlistCtrl.new);
-router.get("/:id", playlistCtrl.show);
+router.get("/playlists/new", playlistsCtrl.new);
+router.get("/playlists/:id", playlistsCtrl.show);
 // 1. GET /playlists/:id/edit
-router.get("/:id/edit", playlistCtrl.edit);
-router.post("/", playlistCtrl.create);
-router.delete("/:id", playlistCtrl.delete);
+router.get("/playlists/:id/edit", playlistsCtrl.edit);
+router.post("/playlists/", playlistsCtrl.create);
+router.delete("/playlists/:id", playlistsCtrl.delete);
 // 2. PUT /playlists/:id
-router.put('/:id', playlistCtrl.update)
+router.put('/playlists/:id', playlistsCtrl.update)
 
 module.exports = router;

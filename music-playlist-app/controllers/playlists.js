@@ -1,4 +1,4 @@
-const Playlist = require("../models/playlist");
+const Playlist = require("../models/profile");
 
 function newPlaylist(req, res) {
   res.render("playlists/new", { title: "Create a Playlist", errorMsg: "" });
