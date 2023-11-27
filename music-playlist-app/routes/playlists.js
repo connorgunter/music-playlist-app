@@ -6,7 +6,7 @@ const ensureLoggedIn = require("../config/ensureLoggedIn");
 router.get("/", ensureLoggedIn, playlistCtrl.myIndex);
 // Remember: new route always bfore show
 router.get("/new", ensureLoggedIn, playlistCtrl.new);
-router.get("/:id", ensureLoggedIn, playlistCtrl.show);
+router.get("/:id", playlistCtrl.show);
 // 1. GET /playlists/:id/edit
 router.get("/:id/edit", ensureLoggedIn, playlistCtrl.edit);
 router.post("/", ensureLoggedIn, playlistCtrl.create);
