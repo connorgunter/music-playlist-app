@@ -1,5 +1,6 @@
 <%- include('./partials/header') %>
 <div class="main-container">
+<div class="table-container">
     <table>
         <thead>
             <tr>
@@ -7,6 +8,7 @@
                 <th>Description</th>
                 <th>Mood</th>
                 <th>Created</th>
+                <th>Details</th>
             </tr>
         </thead>
         <tbody>
@@ -17,9 +19,15 @@
                     <td><%= p.mood %></td>
                     <!-- timeAgo to-do -->
                     <td><%= p.createdAt.toLocaleDateString() %></td>
+                    <td>
+                        <form method="GET" action="/playlists/<%= p.id %>">
+                          <button type="submit">DETAILS</button>
+                        </form>
+                      </td>
                     <%}) %>
                 </tr>
             </tbody>
     </table>
+</div>
 </div>
 <%- include('./partials/footer') %>
