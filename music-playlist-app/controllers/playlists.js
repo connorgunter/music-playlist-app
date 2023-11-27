@@ -1,13 +1,21 @@
 const Playlist = require("../models/playlist");
+// const User = require("../models/user");
 
 function newPlaylist(req, res) {
+  req.body.user = req.user._id;
+  req.body.userName = req.user.name;
+  req.body.userAvatar = req.user.avatar;
   res.render("playlists/new", { title: "Create a Playlist", errorMsg: "" });
 }
 
 async function create(req, res, next) {
   req.body.name = req.body.name.trim();
+  req.body.user = req.user._id;
+  req.body.userName = req.user.name;
+  req.body.userAvatar = req.user.avatar;
   try {
     const newPlaylist = await Playlist.create(req.body);
+
     console.log(newPlaylist);
     res.redirect(`/playlists/${newPlaylist._id}`);
   } catch (err) {
@@ -29,6 +37,9 @@ async function show(req, res) {
 async function myIndex(req, res) {
   try {
     const myPlaylists = await Playlist.find().sort("createdAt");
+    req.body.user = req.user._id;
+    req.body.userName = req.user.name;
+    req.body.userAvatar = req.user.avatar;
     res.render("playlists/index", { title: "My Playlists", myPlaylists });
   } catch (err) {
     console.log("index error", err);
@@ -47,6 +58,9 @@ async function index(req, res) {
 async function deletePlaylist(req, res) {
   try {
     const playlist = req.params.id;
+    req.body.user = req.user._id;
+    req.body.userName = req.user.name;
+    req.body.userAvatar = req.user.avatar;
     await Playlist.findByIdAndDelete(playlist);
     res.redirect("/playlists");
   } catch (err) {
@@ -58,6 +72,9 @@ async function edit(req, res) {
   try {
     // res.send("Edit page will be here");
     const playlist = await Playlist.findById(req.params.id);
+    req.body.user = req.user._id;
+    req.body.userName = req.user.name;
+    req.body.userAvatar = req.user.avatar;
     // res.send(playlist)
     res.render("playlists/edit", {
       title: "Edit Playlist",
@@ -77,6 +94,9 @@ async function update(req, res) {
     playlist.name = req.body.name;
     playlist.description = req.body.description;
     playlist.mood = req.body.mood;
+    //
+    console.log(req.body);
+
     // save the update
     await playlist.save();
     console.log(playlist);
