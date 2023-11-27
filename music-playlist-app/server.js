@@ -9,7 +9,6 @@ const methodOverride =require('method-override')
 
 const indexRouter = require('./routes/index');
 const playlistsRouter = require('./routes/playlists');
-const profilesRouter = require('./routes/profiles');
 
 const app = express();
 
@@ -24,8 +23,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'))
 app.use('/', indexRouter);
-app.use('/profile', profilesRouter) // TODO: eventually replace /profile w/ username id
-app.use('/', playlistsRouter);
+app.use('/playlists', playlistsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

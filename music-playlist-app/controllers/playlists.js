@@ -1,4 +1,4 @@
-const Playlist = require("../models/profile");
+const Playlist = require("../models/playlist");
 
 function newPlaylist(req, res) {
   res.render("playlists/new", { title: "Create a Playlist", errorMsg: "" });
@@ -74,11 +74,9 @@ async function update(req, res) {
     const playlist = await Playlist.findById(req.params.id);
     // rename each property based on edit form values
     // TODO: note to come back and revisit this approach
-    // playlist.name = req.body.name;
-    // playlist.description = req.body.description;
-    // playlist.mood = req.body.mood;
-    const { name, description, mood } = req.body;
-    Object.assign(playlist, { name, description, mood });
+    playlist.name = req.body.name;
+    playlist.description = req.body.description;
+    playlist.mood = req.body.mood;
     // save the update
     await playlist.save();
     console.log(playlist);

@@ -31,12 +31,6 @@ const playlistSchema = new Schema(
   { timestamps: true }
 );
 
-// const profileSchema = new Schema ({
-//   username: { type: String },
-//   email: { type: String },
-//   playlists: [(playlistSchema)]
-// })
-
 // ICEBOX TO-DO
 
 // playlistSchema.virtual("timeAgo").get(function () {
