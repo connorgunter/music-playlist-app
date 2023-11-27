@@ -7,9 +7,16 @@ const userSchema = new Schema(
     googleId: { type: String, required: true },
     email: String,
     avatar: String,
+    playlists: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Playlist",
+      },
+    ],
   },
   {
     timestamps: true,
-  });
+  }
+);
 
 module.exports = mongoose.model("User", userSchema);
