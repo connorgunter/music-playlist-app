@@ -1,5 +1,5 @@
 <%- include('../partials/header') %>
-<form action="/playlists/<%= playlist.id %>?_method=PUT" method="POST">
+<form id="edit-form" action="/playlists/<%= playlist.id %>?_method=PUT" method="POST">
   <div>
     <label for="name">Edit Name:</label>
     <input type="text" name="name" id="name" value="<%= playlist.name %>" required/>
@@ -24,7 +24,7 @@
         <option value="Workout" <%= playlist.mood === 'Workout' ? 'selected' : '' %>>Workout</option>
     </select>
   </div><br>
-  <button type="submit">Update Playlist</button>
+  <button id="edit-button" type="submit">Update Playlist</button>
 </form>
 <p><%= errorMsg %></p>
 <%- include('../partials/footer') %>
