@@ -1,26 +1,12 @@
 <%- include('../partials/header') %>
-<<<<<<< HEAD
-<section class="table-container">
-    <a href="/playlists/<%= playlist.id %>/edit">Edit Playlist</a>
-=======
 <section class="main-container">
 <section class="table-container">
->>>>>>> development
   <div><strong>Description: </strong><%= playlist.description %></div>
   <br />
   <div><strong>Mood: </strong><%= playlist.mood %></div>
   <br />
   <div><strong>Songs: </strong><%= playlist.song %></div>
   <br />
-<<<<<<< HEAD
-  <button>Add a Song</button>
-  <br /><br />
-  <div>
-    <form method="POST" action="/playlists/<%= playlist.id %>?_method=DELETE">
-      <button onclick="return confirm('Are you sure you want to delete <%= playlist.name %>?')" type="submit">Delete Playlist</button>
-    </form>
-  </div>
-=======
   <%if (user && playlist.user.equals(user._id)){%>
     <a href="/playlists/<%= playlist.id %>/edit">Edit Playlist</a>
     <button>Add a Song</button>
@@ -32,7 +18,6 @@
     </div>
   <%}%>
 </section>
->>>>>>> development
 </section>
 
 <%- include('../partials/footer') %>
