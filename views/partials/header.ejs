@@ -11,14 +11,14 @@
     <title><%= title %></title>
 </head>
 <body>
-    <h1 id="title-header">Playlistify</h1>
+    <h1 id="title-header">BeatBuddy</h1>
     
     <nav>
     <div class="left-nav">
-        <a href="/" <%- title === 'All Playlists' ? 'class="active"' : '' %>>HOME</a> |
+        <a href="/" <%- title === 'All Playlists' ? 'class="active"' : '' %>>HOME</a>
         <% if (user) { %>
-        <a href="/playlists" <%- title === 'My Playlists' ? 'class="active"' : '' %>>MY PLAYLISTS</a> |
-        <a href="/playlists/new" <%- title === 'Create a Playlist' ? 'class="active"' : '' %>>CREATE PLAYLIST</a>
+        <a href="/playlists" <%- title === 'My Playlists' ? 'class="active"' : '' %>>MY PLAYLISTS</a>
+        <a href="/playlists/new" <%- title === 'Create a Playlist' ? 'class="active"' : '' %>>CREATE A PLAYLIST</a>
         <% } %>
     </div>
 

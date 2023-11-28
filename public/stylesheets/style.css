@@ -45,6 +45,7 @@ nav {
   text-decoration: none;
   padding: 10px;
   color: white;
+  margin-right: 20px; /* left-nav spacing between menu items */
 }
 
 .left-nav a:hover {
