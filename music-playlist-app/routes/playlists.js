@@ -9,7 +9,7 @@ router.get("/new", ensureLoggedIn, playlistCtrl.new);
 router.get("/:id", playlistCtrl.show);
 // 1. GET /playlists/:id/edit
 router.get("/:id/edit", ensureLoggedIn, playlistCtrl.edit);
-router.post("/",  playlistCtrl.create);
+router.post("/", playlistCtrl.create);
 router.delete("/:id", ensureLoggedIn, playlistCtrl.delete);
 // 2. PUT /playlists/:id
 router.put("/:id", playlistCtrl.update);

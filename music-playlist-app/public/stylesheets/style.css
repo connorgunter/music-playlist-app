@@ -38,6 +38,7 @@ nav > a {
 nav > a:hover{
   background: gray;
 }
+
 .table-container,
 #create-form,
 #edit-form {
@@ -101,13 +102,18 @@ table {
   height: 30px;
 }
 
-.review-user {
+.google-user {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.review-user img {
+.google-user img {
   border-radius: 50%;
   height: 40px;
+}
+
+.google-user-nav {
+  border-radius: 50%;
+  height: 60px;
 }

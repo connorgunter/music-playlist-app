@@ -9,10 +9,10 @@ function newPlaylist(req, res) {
 
 async function create(req, res, next) {
   req.body.name = req.body.name.trim();
-  req.body.user = req.user._id;
-  req.body.userName = req.user.name;
-  req.body.userAvatar = req.user.avatar;
   try {
+    req.body.user = req.user._id;
+    req.body.userName = req.user.name;
+    req.body.userAvatar = req.user.avatar;
     const newPlaylist = await Playlist.create(req.body);
     // console.log(newPlaylist);
     res.redirect(`/playlists/${newPlaylist._id}`);
@@ -78,6 +78,7 @@ async function edit(req, res) {
     req.body.user = req.user._id;
     req.body.userName = req.user.name;
     req.body.userAvatar = req.user.avatar;
+    console.log(req.body)
     // res.send(playlist)
     res.render("playlists/edit", {
       title: "Edit Playlist",
