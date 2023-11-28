@@ -11,6 +11,68 @@ header {
   text-align: center;
 }
 
+table {
+  width:100%;
+}
+
+table, th, td {
+  border: 1px solid;
+  border-collapse: collapse;
+  padding: 10px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+nav {
+  background: black;
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-nav {
+  display:flex;
+  align-items: center;
+}
+
+.left-nav a {
+  font-size: 20px;
+  text-decoration: none;
+  padding: 10px;
+  color: white;
+}
+
+.left-nav a:hover {
+  background: gray;
+}
+
+.right-nav {
+  display: flex;
+  align-items: center;
+}
+
+.right-nav a{
+  font-size: 20px;
+  text-decoration: none;
+  padding: 10px;
+  color: white;
+}
+
+.right-nav a:hover{
+  background:gray;
+}
+
+.google-user-nav {
+  border-radius: 50%;
+  height: 30px;
+  margin-right: 10px;
+}
+
 #delete-button {
   color: red;
 }
@@ -19,24 +81,6 @@ header {
   text-align: center;
   font-size: 50px;
   font-family: 'Abril Fatface', serif;
-}
-
-nav {
-  background: black;
-  padding: 10px;
-  text-align: center;
-  border-radius: 10px;
-  max-width: 100%;
-}
-
-nav > a {
-  font-size: 20px;
-  text-decoration: none;
-  padding: 10px;
-  color: white;
-}
-nav > a:hover{
-  background: gray;
 }
 
 .table-container,
@@ -50,10 +94,7 @@ nav > a:hover{
   width: 850px;
 }
 
-label {
-  display: block;
-  font-weight: bold;
-}
+
 
 #create-button, 
 #edit-button {
@@ -69,21 +110,13 @@ label {
   background-color: #555; /* Darker color on hover */
 }
 
-table, th, td {
-  border: 1px solid;
-  border-collapse: collapse;
-  padding: 10px;
-}
+
 
 .selector:hover {
   cursor: pointer;
   background-color: white;
 }
 
-table {
-  width:100%;
-
-}
 
 .main-container {
   display: flex;
@@ -113,7 +146,3 @@ table {
   height: 40px;
 }
 
-.google-user-nav {
-  border-radius: 50%;
-  height: 60px;
-}
