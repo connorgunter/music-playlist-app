@@ -17,7 +17,8 @@
         <% if (user) { %>
         <a href="/playlists" <%- title === 'My Playlists' ? 'class="active"' : '' %>>MY PLAYLISTS</a> |
         <a href="/playlists/new" <%- title === 'Create a Playlist' ? 'class="active"' : '' %>>CREATE PLAYLIST</a>
-        <a href="/logout">LOG OUT</a>
+        <img class="google-user-nav" alt="avatar" src="<%= user.avatar %>" referrerpolicy="no-referrer" >
+        <a href="/logout">LOG OUT</a>    
         <% } else { %>
           <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
         <% } %>
