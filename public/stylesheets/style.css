@@ -35,7 +35,8 @@ nav {
   justify-content: space-between;
 }
 
-.left-nav {
+.left-nav,
+.right-nav {
   display:flex;
   align-items: center;
 }
@@ -48,13 +49,10 @@ nav {
   margin-right: 20px; /* left-nav spacing between menu items */
 }
 
-.left-nav a:hover {
+.left-nav a:hover,
+.right-nav a:hover {
   background: gray;
-}
-
-.right-nav {
-  display: flex;
-  align-items: center;
+  border-radius: 10px;
 }
 
 .right-nav a{
@@ -64,9 +62,6 @@ nav {
   color: white;
 }
 
-.right-nav a:hover{
-  background:gray;
-}
 
 .google-user-nav {
   border-radius: 50%;
