@@ -4,6 +4,7 @@
     <table>
         <thead>
             <tr>
+                <th>User</th>
                 <th>Name</th>
                 <th>Description</th>
                 <th>Mood</th>
@@ -14,6 +15,7 @@
         <tbody>
             <% allPlaylists.forEach(function(p){%>
                 <tr>
+                    <td class="google-user"><img alt="avatar" src="<%= p.userAvatar %>" referrerpolicy="no-referrer" ><%= p.userName %></td>
                     <td><%= p.name  %></td>  
                     <td><%= p.description %></td>
                     <td><%= p.mood %></td>

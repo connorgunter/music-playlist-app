@@ -27,6 +27,13 @@ const playlistSchema = new Schema(
       },
     ],
     likes: { type: Number },
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
+    userName: String,
+    userAvatar: String,
   },
   { timestamps: true }
 );
