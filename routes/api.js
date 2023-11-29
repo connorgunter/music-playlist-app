@@ -4,7 +4,7 @@ const passport = require('passport');
 const songsCtrl = require("../controllers/api");
 const ensureLoggedIn = require("../config/ensureLoggedIn");
 
-router.get('/playlists/:id/search', ensureLoggedIn,songsCtrl.search)
+router.get('/playlists/:id/search', ensureLoggedIn,songsCtrl.add)
 
 
 
