@@ -17,22 +17,39 @@ function add(req, res) {
   });
 }
 
-function search(req, res, next) {
+async function search(req, res, next) {
   const q = req.query.q;
+  const playlist = await Playlist.findById(req.params.id);
+  console.log(req.body);
   // const results = queryData.results.trackmatches.track
-  if (!q) return res.render("songs/search", { queryData: null });
-  fetch(
-    `${ROOT_URL}/?method=track.search&track=${q}&api_key=${token}&format=json&limit=10`
-  )
-    .then((res) => res.json())
-    .then((queryData) => {
-      res.render("songs/search", {
-        title: `Search Results: ${q}`,
-        errorMsg: "",
-        queryData,
+  try {
+    if (!q) return res.render("songs/search", { queryData: null, playlist });
+    fetch(
+      `${ROOT_URL}/?method=track.search&track=${q}&api_key=${token}&format=json&limit=10`
+    )
+      .then((res) => res.json())
+      .then((queryData) => {
+        res.render("songs/search", {
+          title: `Search Results: ${q}`,
+          errorMsg: "",
+          queryData,
+          playlist,
+        });
       });
-    });
+  } catch (err) {
+    console.log(err);
+  }
 }
+
+// function addToPlaylist(req, res) {
+//   try {
+//     const playlist = Playlist.findById(req.params.id);
+//     console.log(req.params.id);
+//     // const song = await Song.find();
+//   } catch (err) {
+//     console.log(err);
+//   }
+// }
 
 // async function addToPlaylist(req, res) {}
 

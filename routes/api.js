@@ -7,7 +7,8 @@ const ensureLoggedIn = require("../config/ensureLoggedIn");
 
 // GET search page
 router.get("/search", ensureLoggedIn, songsCtrl.add);
+router.get("/search/results", songsCtrl.search);
 // GET search results
-router.get("/search/add", songsCtrl.search);
+// router.post("/songs", songsCtrl.addToPlaylist);
 
 module.exports = router;

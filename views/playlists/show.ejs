@@ -9,7 +9,7 @@
   <br />
   <%if (user && playlist.user.equals(user._id)){%>
     <a href="/playlists/<%= playlist.id %>/edit">Edit Playlist</a>
-    <form action="/search" method="GET">
+    <form action="/playlists/<%=playlist.id%>/search" method="GET">
       <button type='submit'>Add a Song</button>
     </form>
     <br /><br />
