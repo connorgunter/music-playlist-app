@@ -3,6 +3,8 @@ const router = express.Router();
 const passport = require('passport');
 const playlistCtrl = require("../controllers/playlists");
 
+// Routes begin at http://localhost:3000
+
 // GET home page - root route
 router.get("/", playlistCtrl.index);
 

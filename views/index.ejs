@@ -19,13 +19,15 @@
                     <td><%= p.name  %></td>  
                     <td><%= p.description %></td>
                     <td><%= p.mood %></td>
-                    <!-- timeAgo to-do -->
+                    <!-- ICEBOX: change to timeAgo -->
                     <td><%= p.createdAt.toLocaleDateString() %></td>
                     <td>
+                    <!-- TO-DO: Use a link instead of form button -->
+                    <!-- <a href="/playlists/<%= p.id %>" class="btn-link">DETAILS</a> -->
                         <form method="GET" action="/playlists/<%= p.id %>">
-                          <button type="submit">DETAILS</button>
+                            <button type="submit">DETAILS</button>
                         </form>
-                      </td>
+                    </td>
                     <%}) %>
                 </tr>
             </tbody>

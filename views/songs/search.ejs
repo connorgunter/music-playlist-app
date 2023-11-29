@@ -21,22 +21,25 @@
         </tr>
     </thead>
     <tbody>
-      <form method="POST" action="/playlists/<%= playlist.id%>/songs ">
       <% results.forEach(function(r) { %>
-    <tr>
-      <td><%= r.name %></td>
-      <td><%= r.artist %></td>
-      <td><a href="<%= r.url %>" target="_blank">Play Song</a></td>
-        <td><button type="submit">+</button>
+        <tr>
+          <td><%= r.name %></td>
+          <td><%= r.artist %></td>
+          <td><a href="<%= r.url %>" target="_blank">Play Song</a></td>
+          <td>
+            <form method="POST" action="/playlists/<%= playlist.id%>/songs ">
+              <button type="submit">+</button>
+            </form>
+          </td>
         </tr>
-      </form>
  <% }) %>
   </tbody>
   </table>
 <% } else { %>
+  <!-- Note: unnecessary?
   <h3>
     Search a song!
-  </h3>
+  </h3> -->
 <% } %>
 </div>
 </div>
