@@ -1,0 +1,10 @@
+<%- include('../partials/header') %>
+
+ <form method="GET" action="/playlists/<%=playlist.id%>/search">
+  <input name="query" required placeholder="track" />
+  <button type="submit">Search song</button>
+</form> 
+
+<p><%= errorMsg %></p>
+
+<%- include('../partials/footer') %>
