@@ -4,11 +4,11 @@ const Playlist = require("../models/playlist");
 const token = process.env.LASTFM_TOKEN;
 const ROOT_URL = "https://ws.audioscrobbler.com/2.0";
 
-function add(req, res) {
+async function add(req, res) {
   req.body.user = req.user._id;
   req.body.userName = req.user.name;
   req.body.userAvatar = req.user.avatar;
-  const playlist = Playlist.findById(req.params.id);
+  const playlist = await Playlist.findById(req.params.id);
   res.render("songs/search", {
     title: "Search a Song",
     errorMsg: "",
@@ -20,7 +20,6 @@ function add(req, res) {
 async function search(req, res, next) {
   const q = req.query.q;
   const playlist = await Playlist.findById(req.params.id);
-  console.log(req.body);
   // const results = queryData.results.trackmatches.track
   try {
     if (!q) return res.render("songs/search", { queryData: null, playlist });
@@ -41,20 +40,21 @@ async function search(req, res, next) {
   }
 }
 
-// function addToPlaylist(req, res) {
-//   try {
-//     const playlist = Playlist.findById(req.params.id);
-//     console.log(req.params.id);
-//     // const song = await Song.find();
-//   } catch (err) {
-//     console.log(err);
-//   }
-// }
+async function addToPlaylist(req, res) {
+  try {
+    const playlist = await Playlist.findById(req.params.id);
+    console.log(req.params.id);
+    // const song = await Song.find();
+    res.send("working");
+  } catch (err) {
+    console.log(err);
+  }
+}
 
 // async function addToPlaylist(req, res) {}
 
 module.exports = {
   add,
   search,
-  // addToPlaylist,
+  addToPlaylist,
 };

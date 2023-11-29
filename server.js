@@ -42,12 +42,12 @@ app.use(function (req, res, next) {
 app.use(methodOverride("_method"));
 app.use("/", indexRouter);
 app.use("/playlists", playlistsRouter);
-app.use("/playlists/:id", apiRouter);
+app.use("/playlists", apiRouter);
 
 // catch 404 and forward to error handler
-app.use(function (req, res, next) {
-  next(createError(404));
-});
+// app.use(function (req, res, next) {
+//   next(createError(404));
+// });
 
 // error handler
 app.use(function (err, req, res, next) {

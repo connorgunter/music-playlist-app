@@ -6,9 +6,9 @@ const ensureLoggedIn = require("../config/ensureLoggedIn");
 // start from http://localhost:3000/
 
 // GET search page
-router.get("/search", ensureLoggedIn, songsCtrl.add);
-router.get("/search/results", songsCtrl.search);
+router.get("/:id/search", ensureLoggedIn, songsCtrl.add);
+router.get("/:id/search/results", songsCtrl.search);
 // GET search results
-// router.post("/songs", songsCtrl.addToPlaylist);
+router.post("/:id/songs", songsCtrl.addToPlaylist);
 
 module.exports = router;

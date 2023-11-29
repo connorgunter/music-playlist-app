@@ -26,6 +26,7 @@ async function create(req, res, next) {
 async function show(req, res) {
   try {
     const playlist = await Playlist.findById(req.params.id);
+    console.log("show", playlist);
     res.render("playlists/show", {
       title: `${playlist.name}`,
       playlist,
@@ -78,7 +79,7 @@ async function edit(req, res) {
     req.body.user = req.user._id;
     req.body.userName = req.user.name;
     req.body.userAvatar = req.user.avatar;
-    console.log(req.body)
+    console.log(req.body);
     // res.send(playlist)
     res.render("playlists/edit", {
       title: "Edit Playlist",

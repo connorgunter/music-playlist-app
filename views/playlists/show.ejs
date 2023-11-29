@@ -12,6 +12,7 @@
     <form action="/playlists/<%=playlist.id%>/search" method="GET">
       <button type='submit'>Add a Song</button>
     </form>
+    <a href="/playlists/<%=playlist.id%>/search">add a song</a>
     <br /><br />
     <div>
       <form method="POST" action="/playlists/<%= playlist.id %>?_method=DELETE">
