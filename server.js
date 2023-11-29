@@ -12,7 +12,7 @@ const methodOverride = require("method-override");
 
 const indexRouter = require("./routes/index");
 const playlistsRouter = require("./routes/playlists");
-const apiRouter =require("./routes/api")
+const apiRouter = require("./routes/api")
 const app = express();
 
 // view engine setup
