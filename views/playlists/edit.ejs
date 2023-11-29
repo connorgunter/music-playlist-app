@@ -1,4 +1,5 @@
 <%- include('../partials/header') %>
+<%if (user && playlist.user.equals(user._id)){%>
 <form id="edit-form" action="/playlists/<%= playlist.id %>?_method=PUT" method="POST">
   <div>
     <label for="name">Edit Name:</label>
@@ -27,4 +28,7 @@
   <button id="edit-button" type="submit">Update Playlist</button>
 </form>
 <p><%= errorMsg %></p>
+<% } else { %>
+  <p>Oops! You do not own this Playlist!</p>
+  <% } %>
 <%- include('../partials/footer') %>

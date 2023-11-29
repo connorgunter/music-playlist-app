@@ -6,7 +6,7 @@ function newPlaylist(req, res) {
   req.body.userAvatar = req.user.avatar;
   res.render("playlists/new", { title: "Create a Playlist", errorMsg: "" });
 }
-
+//test
 async function create(req, res, next) {
   req.body.name = req.body.name.trim();
   try {

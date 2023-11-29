@@ -12,7 +12,7 @@ const methodOverride = require("method-override");
 
 const indexRouter = require("./routes/index");
 const playlistsRouter = require("./routes/playlists");
-
+const apiRouter = require("./routes/api")
 const app = express();
 
 // view engine setup
@@ -42,6 +42,7 @@ app.use(function (req, res, next) {
 app.use(methodOverride("_method"));
 app.use("/", indexRouter);
 app.use("/playlists", playlistsRouter);
+app.use('/',apiRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
