@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 <div class="main-container">
   <div class="table-container">
-<form method="GET" action="/search/add">
+<form method="GET" action="/playlists/<%= playlist.id%>/search/results">
   <input type="text" name="q" placeholder="Search for a song..." required/>
   <button type="submit">Search</button>
 </form>
@@ -21,13 +21,15 @@
         </tr>
     </thead>
     <tbody>
-  <% results.forEach(function(r) { %>
+      <form method="POST" action="/playlists/<%= playlist.id%>/songs ">
+      <% results.forEach(function(r) { %>
     <tr>
       <td><%= r.name %></td>
       <td><%= r.artist %></td>
       <td><a href="<%= r.url %>" target="_blank">Play Song</a></td>
-      <td><button type="submit">+</button>
-    </tr>
+        <td><button type="submit">+</button>
+        </tr>
+      </form>
  <% }) %>
   </tbody>
   </table>
