@@ -14,30 +14,30 @@ function add(req, res) {
   });
 }
 
-async function search(req, res, next) {
+function search(req, res, next) {
   // const URL = `http://ws.audioscrobbler.com/2.0/?method=track.search&track=${req.query}&api_key=343d6527988382155ca7f8b3e577db33&format=json`
   // const config = {
   //   method: GET
   // }
-  try {
+  // try {
   // const playlist = Playlist.findOne();
   const q = req.query.q;
   console.log(`search query: ${q}`);
   // const apiResponse = await fetch(URL, config)
   res.render("songs/search", {
-    title: "Search Results",
+    title: `Search Results: ${q}`,
     errorMsg: "",
     // playlist
   });
-  } catch (err) {
-    console.log(err);
-  }
+  // } catch (err) {
+  //   console.log(err);
+  // }
 }
 
-async function addToPlaylist(req, res) {}
+// async function addToPlaylist(req, res) {}
 
 module.exports = {
   add,
   search,
-  addToPlaylist,
+  // addToPlaylist,
 };
