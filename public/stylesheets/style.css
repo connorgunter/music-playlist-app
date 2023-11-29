@@ -1,6 +1,17 @@
+:root {
+  --black: #01020d;
+  --dark-purple: #7a688b;
+  --light-purple: #b8aac5;
+  --dark-green: #24777d;
+  --bright-green: #70eacc;
+  --light-green: #dbf2e1;
+  --gradient: linear-gradient(to right, #7a688b, #b8aac5, #70eacc, #24777d);
+}
+
 * {
   box-sizing: border-box;
 }
+
 body {
   padding-left: 50px;
   padding-right: 50px;
@@ -12,10 +23,12 @@ header {
 }
 
 table {
-  width:100%;
+  width: 100%;
 }
 
-table, th, td {
+table,
+th,
+td {
   border: 1px solid;
   border-collapse: collapse;
   padding: 10px;
@@ -27,7 +40,7 @@ label {
 }
 
 nav {
-  background: black;
+  background: var(--dark-green);
   padding: 10px;
   border-radius: 10px;
   max-width: 100%;
@@ -37,7 +50,7 @@ nav {
 
 .left-nav,
 .right-nav {
-  display:flex;
+  display: flex;
   align-items: center;
 }
 
@@ -55,13 +68,12 @@ nav {
   border-radius: 10px;
 }
 
-.right-nav a{
+.right-nav a {
   font-size: 20px;
   text-decoration: none;
   padding: 10px;
   color: white;
 }
-
 
 .google-user-nav {
   border-radius: 50%;
@@ -74,9 +86,17 @@ nav {
 }
 
 #title-header {
+  background-color: var(--dark-green);
+  background-image: var(--gradient);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
   text-align: center;
   font-size: 50px;
-  font-family: 'Abril Fatface', serif;
+  font-family: "Abril Fatface", serif;
 }
 
 .table-container,
@@ -84,15 +104,13 @@ nav {
 #edit-form {
   text-align: center;
   padding: 20px;
-  background-color: rgb(240, 235, 223);
+  background-color: var(--light-green);
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   width: 850px;
 }
 
-
-
-#create-button, 
+#create-button,
 #edit-button {
   background-color: black;
   color: white;
@@ -106,13 +124,10 @@ nav {
   background-color: #555; /* Darker color on hover */
 }
 
-
-
 .selector:hover {
   cursor: pointer;
   background-color: white;
 }
-
 
 .main-container {
   display: flex;
@@ -141,4 +156,3 @@ nav {
   border-radius: 50%;
   height: 40px;
 }
-
