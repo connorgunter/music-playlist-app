@@ -23,14 +23,14 @@
     <tbody>
   <% results.forEach(function(r) { %>
     <tr>
-    <td><%= r.name %></td>
-    <td><%= r.artist %></td>
-    <td><a href="<%= r.url %>" target="_blank">Play Song</a></td>
-    <td><button type="submit">+</button>
+      <td><%= r.name %></td>
+      <td><%= r.artist %></td>
+      <td><a href="<%= r.url %>" target="_blank">Play Song</a></td>
+      <td><button type="submit">+</button>
     </tr>
  <% }) %>
   </tbody>
-</table>
+  </table>
 <% } else { %>
   <h3>
     Search a song!

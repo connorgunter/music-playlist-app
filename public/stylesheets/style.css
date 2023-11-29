@@ -156,3 +156,14 @@ nav {
   border-radius: 50%;
   height: 40px;
 }
+
+.logo {
+  height: 80px;
+  margin-right: center;
+}
+
+.top-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
