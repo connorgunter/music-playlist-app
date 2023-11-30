@@ -4,7 +4,8 @@
 <form method="GET" action="/playlists/<%= playlist.id%>/search/results">
   <input type="text" name="q" placeholder="Search for a song..." required/>
   <button type="submit">Search</button>
-</form>
+</form><br>
+<a href="/playlists/<%=playlist.id%>" class="btn-link">Return to Playlist</a>
 
 <p><%= errorMsg %></p>
 

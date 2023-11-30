@@ -63,8 +63,28 @@ async function addToPlaylist(req, res) {
         playlist.save();
         console.log(songData.track);
       });
+    if (!q) {
+      res.redirect(`/playlists/${playlist._id}/search`);
+    }
 
-    res.redirect(`/playlists/${playlist._id}/search`);
+    fetch(
+      `${ROOT_URL}/?method=track.search&track=${q}&api_key=${token}&format=json&limit=10`
+    )
+      .then((res) => res.json())
+      .then((queryData) => {
+        const results = queryData.results.trackmatches.track.map((r) => {
+          r.safe_name = r.name.replace(/\?/g, "%3F");
+          r.safe_artist = r.artist.replace(/\?/g, "%3F");
+          return r;
+        });
+        res.render("songs/search", {
+          title: `Search Results: ${q}`,
+          errorMsg: "",
+          queryData,
+          playlist,
+          results,
+        });
+      });
   } catch (err) {
     console.log(err);
   }
