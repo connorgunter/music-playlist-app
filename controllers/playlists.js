@@ -49,11 +49,17 @@ async function myIndex(req, res) {
 
 async function index(req, res) {
   try {
-    let query = {}
-    if (req.query.mood) {
-      query = {mood: req.query.mood}
+    let query;
+    let allPlaylists;
+    const selectedMood = req.query.mood
+    if (selectedMood !== "All Moods") {
+      query = {mood: selectedMood}
     }
-    const allPlaylists = await Playlist.find(query).sort("mood");
+    if (selectedMood === "All Moods") {
+      allPlaylists = await Playlist.find(query).sort({createdAt: -1});
+    } else {
+      allPlaylists = await Playlist.find(query).sort("mood");
+    }
     res.render("index", { title: "All Playlists", allPlaylists });
   } catch (err) {
     console.log("index error", err);
