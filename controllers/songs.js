@@ -32,7 +32,7 @@ async function search(req, res, queryData) {
           //console.log(r.safe_name)
           return r;
         });
-        console.log("queryData:", results[1]);
+        //console.log("queryData:", results[1]);
         res.render("songs/search", {
           title: `Search Results: ${q}`,
           errorMsg: "",
@@ -48,7 +48,7 @@ async function search(req, res, queryData) {
 
 // triggered by clicking of + button
 async function addToPlaylist(req, res) {
-  console.log("line 46:", req.params);
+  //console.log("line 46:", req.params);
   const playlist = await Playlist.findById(req.params.id);
   const { name, artist } = req.params;
   // const encodeName = encodeURIComponent(name).replace(/\?/g,'%3F')
@@ -63,6 +63,7 @@ async function addToPlaylist(req, res) {
           .push({
             name: songData.track.name,
             artist: songData.track.artist.name,
+            url: songData.track.url
           })
           playlist.save()
         });
