@@ -26,9 +26,13 @@
           <td><%= r.artist %></td>
           <td><a href="<%= r.url %>" target="_blank" class="btn-link">Play Song</a></td>
           <td>
+            <% if (isSongInPlaylist(playlist, r)) { %>
+              <button type="button" class="btn-added">+ Added</button>
+            <% } else {%>
             <form method="POST" action="/playlists/<%= playlist.id%>/songs/<%= r.safe_name %>/<%= r.artist %>">
               <button type="submit" class="btn-add">+ Add</button>
             </form>
+            <%}%>
           </td>
         </tr>
  <% }) %>
