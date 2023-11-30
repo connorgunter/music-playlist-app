@@ -10,7 +10,6 @@
 
 <div class="query-data">
 <% if (queryData) { %>
-  <% const results = queryData.results.trackmatches.track %>
   <table>
     <thead>
         <tr>
@@ -27,7 +26,7 @@
           <td><%= r.artist %></td>
           <td><a href="<%= r.url %>" target="_blank">Play Song</a></td>
           <td>
-            <form method="POST" action="/playlists/<%= playlist.id%>/songs">
+            <form method="POST" action="/playlists/<%= playlist.id%>/songs/<%= r.safe_name %>/<%= r.artist %>">
               <button type="submit">+</button>
             </form>
           </td>
