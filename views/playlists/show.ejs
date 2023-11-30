@@ -10,10 +10,10 @@
   <%if (user && playlist.user.equals(user._id)){%>
     <a href="/playlists/<%= playlist.id %>/edit">Edit Playlist</a>
     <!-- TO-DO: Use a link instead of form button -->
-    <!-- <a href="/playlists/<%=playlist.id%>/search" class="btn-link">+ Add Songs</a> -->
-    <form action="/playlists/<%=playlist.id%>/search" method="GET">
+    <a href="/playlists/<%=playlist.id%>/search" class="btn-link">+ Add Songs</a>
+    <!-- <form action="/playlists/<%=playlist.id%>/search" method="GET">
       <button type='submit'>Add a Song</button>
-    </form>
+    </form> -->
     <br /><br />
     <div>
       <form method="POST" action="/playlists/<%= playlist.id %>?_method=DELETE">
