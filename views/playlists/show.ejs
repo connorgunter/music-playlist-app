@@ -9,7 +9,7 @@
     <% playlist.songs.forEach((s)=>{%>
      <p><%=s.name %> </p> 
       <p><%=s.artist%></p>
-      <p><%=s.url%></p>
+      <a href="<%=s.url%>" target="_blank">Play<a/>
     <% }) %></div>
   <br/>
   <%if (user && playlist.user.equals(user._id)){%>

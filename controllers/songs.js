@@ -59,31 +59,31 @@ async function addToPlaylist(req, res) {
     )
       .then((res) => res.json())
       .then((songData) => {
-        playlist.songs
-          .push({
-            name: songData.track.name,
-            artist: songData.track.artist.name,
-            url: songData.track.url
-          })
-          playlist.save()
+        playlist.songs.push({
+          name: songData.track.name,
+          artist: songData.track.artist.name,
+          url: songData.track.url,
         });
-          //await playlist.save();
-          console.log(playlist.songs)
-          console.log(playlist)
-        res.redirect(`/playlists/${playlist._id}/search`);
-      
-        // console.log('line 52:', encodeURIComponent(songData.track.name).replace(/\?/g,'%3F'))
-        //res.render(`fetch song data ${songData.track.name}:${songData.track.artist.name}
-        //)
-        //   });
+        playlist.save();
+        console.log(songData.track);
+      });
+    //await playlist.save();
+    //console.log(playlist.songs)
+    //console.log(playlist)
+    res.redirect(`/playlists/${playlist._id}/search`);
 
-        //const {name,artist,url} =req.body
-        //console.log('this is req.body',req.body)
-        // playlist.songs.push({name,artist,url})
+    // console.log('line 52:', encodeURIComponent(songData.track.name).replace(/\?/g,'%3F'))
+    //res.render(`fetch song data ${songData.track.name}:${songData.track.artist.name}
+    //)
+    //   });
 
-        //console.log(playlist)
+    //const {name,artist,url} =req.body
+    //console.log('this is req.body',req.body)
+    // playlist.songs.push({name,artist,url})
 
-        //res.send(`add song to playlist id: ${req.params.id}`);
+    //console.log(playlist)
+
+    //res.send(`add song to playlist id: ${req.params.id}`);
   } catch (err) {
     console.log(err);
   }
