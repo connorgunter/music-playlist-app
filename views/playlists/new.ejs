@@ -1,5 +1,5 @@
 <%- include('../partials/header') %>
-<section class="main-container">
+<div class="main-container">
 <form id="create-form" action="/playlists" method="POST">
   <div>
     <label for="name">Name:</label>
@@ -27,5 +27,5 @@
   <button id="create-button" type="submit">Create Playlist</button>
 </form>
 <p><%= errorMsg %></p>
-</section>
+</div>
 <%- include('../partials/footer') %>

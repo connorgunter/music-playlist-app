@@ -5,6 +5,7 @@
   --dark-green: #24777d;
   --bright-green: #70eacc;
   --light-green: #dbf2e1;
+  --light-pink: #e5d4d1;
   --gradient: linear-gradient(to right, #7a688b, #b8aac5, #70eacc, #24777d);
 }
 
@@ -23,7 +24,7 @@ header {
 }
 
 table {
-  width: 100%;
+  width: 850px;
 }
 
 table,
@@ -32,6 +33,10 @@ td {
   border: 1px solid;
   border-collapse: collapse;
   padding: 10px;
+}
+
+th {
+  text-transform: uppercase;
 }
 
 label {
@@ -81,10 +86,6 @@ nav {
   margin-right: 10px;
 }
 
-#delete-button {
-  color: red;
-}
-
 #title-header {
   background-color: var(--dark-green);
   background-image: var(--gradient);
@@ -99,6 +100,12 @@ nav {
   font-family: "Abril Fatface", serif;
 }
 
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .table-container,
 #create-form,
 #edit-form {
@@ -110,29 +117,60 @@ nav {
   width: 850px;
 }
 
-#create-button,
-#edit-button {
-  background-color: black;
+/* button styling */
+
+button,
+.btn-link {
+  background-color: var(--dark-green);
   color: white;
   border-radius: 10px;
   padding: 10px 15px;
   cursor: pointer;
+  text-transform: uppercase;
 }
 
-#create-button:hover,
-#edit-button:hover {
-  background-color: #555; /* Darker color on hover */
+button {
+  border-width: 0;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.btn-link {
+  text-decoration: none;
+}
+
+.btn-add {
+  background-color: var(--bright-green);
+  color: var(--black);
+}
+
+.btn-edit {
+  background-color: var(--dark-purple);
+}
+
+.btn-delete {
+  background-color: red;
+}
+
+button:hover,
+.btn-link:hover {
+  background-color: darkcyan; /* Darker color on hover */
+}
+
+.btn-add:hover {
+  background-color: green;
+}
+
+.btn-edit:hover {
+  background-color: darkmagenta;
+}
+
+.btn-delete:hover {
+  background-color: maroon;
 }
 
 .selector:hover {
   cursor: pointer;
   background-color: white;
-}
-
-.main-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 /* .login {
