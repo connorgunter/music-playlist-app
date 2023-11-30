@@ -5,7 +5,7 @@
   <br />
   <div><strong>Mood: </strong><%= playlist.mood %></div>
   <br />
-  <div><strong>Songs: </strong><%= playlist.song %></div>
+  <div><strong>Songs: </strong><%= playlist.songs %></div>
   <br />
   <%if (user && playlist.user.equals(user._id)){%>
     <a href="/playlists/<%= playlist.id %>/edit">Edit Playlist</a>
