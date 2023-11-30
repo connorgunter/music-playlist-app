@@ -24,18 +24,22 @@ header {
   text-align: center;
 }
 
+table {
+  width: 100%;
+}
 
 table,
 th,
 td {
-  border: 1px solid;
   border-collapse: collapse;
   padding: 10px;
+  border:1px solid;
 }
 
 th {
   text-transform: uppercase;
 }
+
 
 label {
   display: block;
@@ -196,4 +200,18 @@ button:hover,
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.sort-container {
+  display: flex;
+  justify-content:flex-end;
+  margin-bottom: 5px;
+}
+.filter-label {
+  margin: 10px;
+  font-size: 12px;
+}
+
+.filter-dropdown {
+  margin-right: 10px;
 }
