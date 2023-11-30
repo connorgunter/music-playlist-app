@@ -8,6 +8,7 @@ const ensureLoggedIn = require("../config/ensureLoggedIn");
 router.get("/", ensureLoggedIn, playlistsCtrl.myIndex);
 // Remember: 'new' route always before 'show' route
 router.get("/new", ensureLoggedIn, playlistsCtrl.new);
+router.get("/sort", playlistsCtrl.index)
 router.get("/:id", playlistsCtrl.show);
 router.get("/:id/edit", ensureLoggedIn, playlistsCtrl.edit);
 router.post("/", playlistsCtrl.create);
