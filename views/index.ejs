@@ -3,8 +3,8 @@
 <div class="table-container">
     <form action="/playlists/sort" method="GET">
     <div class="sort-container">
-    <label>Filter By Mood</label>
-    <select name="mood">
+    <label class="filter-label">Filter By Mood</label>
+    <select class="filter-dropdown" name="mood">
         <option value="All Moods">All Moods</option>
         <option value="Chill">Chill</option>
         <option value="Cozy">Cozy</option>
@@ -17,8 +17,8 @@
         <option value="Upbeat">Upbeat</option>
         <option value="Workout">Workout</option>
 </select>
-</div>
 <button>Filter</button>
+</div>
 </form>
     <table>
         <thead>
