@@ -6,7 +6,7 @@
   --bright-green: #70eacc;
   --light-green: #dbf2e1;
   --light-pink: #e5d4d1;
-  --gradient: linear-gradient(to right, #7a688b, #b8aac5, #70eacc, #24777d);
+  --gradient: linear-gradient(to right, #24777d,#b8aac5, #7a688b);
 }
 
 * {
@@ -14,6 +14,7 @@
 }
 
 body {
+  background: var(--light-pink);
   padding-left: 50px;
   padding-right: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -23,9 +24,6 @@ header {
   text-align: center;
 }
 
-table {
-  width: 850px;
-}
 
 table,
 th,
@@ -87,6 +85,7 @@ nav {
 }
 
 #title-header {
+  background-image: var(--gradient);
   background-color: var(--dark-green);
   background-image: var(--gradient);
   background-size: 100%;
@@ -114,7 +113,7 @@ nav {
   background-color: var(--light-green);
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 850px;
+  width: 890px;
 }
 
 /* button styling */
@@ -172,13 +171,6 @@ button:hover,
   cursor: pointer;
   background-color: white;
 }
-
-/* .login {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 34px;
-} */
 
 .login img {
   height: 30px;
