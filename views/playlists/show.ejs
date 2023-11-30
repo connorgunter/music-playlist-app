@@ -5,8 +5,13 @@
   <br />
   <div><strong>Mood: </strong><%= playlist.mood %></div>
   <br />
-  <div><strong>Songs: </strong><%= playlist.song %></div>
-  <br />
+  <div><strong>Songs: </strong>
+    <% playlist.songs.forEach((s)=>{%>
+     <p><%=s.name %> </p> 
+      <p><%=s.artist%></p>
+      <a href="<%=s.url%>" target="_blank">Play<a/>
+    <% }) %></div>
+  <br/>
   <%if (user && playlist.user.equals(user._id)){%>
     <a href="/playlists/<%= playlist.id %>/edit" class="btn-link btn-edit">Edit Playlist</a>
     <a href="/playlists/<%=playlist.id%>/search" class="btn-link btn-add">Add Songs</a>
