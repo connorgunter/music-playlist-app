@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const playlistSchema = new Schema(
   {
-    name: { type: String, required: true },
+    name: { type: String, required: true, maxlength: 25 },
     description: { type: String, required: true, maxlength: 100 },
     mood: {
       type: String,
