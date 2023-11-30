@@ -22,7 +22,7 @@ const playlistSchema = new Schema(
     },
     songs: [
       {
-        title: String,
+        name: String,
         artist: String,
         url: String,
       },

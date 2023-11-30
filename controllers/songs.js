@@ -17,10 +17,9 @@ async function newSongs(req, res) {
   });
 }
 
-async function search(req, res, next) {
+async function search(req, res,queryData) {
   const q = req.query.q;
   const playlist = await Playlist.findById(req.params.id);
-  // const results = queryData.results.trackmatches.track
   try {
     if (!q) return res.render("songs/search", { queryData: null, playlist });
     fetch(
@@ -41,10 +40,26 @@ async function search(req, res, next) {
 }
 
 async function addToPlaylist(req, res) {
+  const playlist = await Playlist.findById(req.params.id);
   try {
-    const playlist = await Playlist.findById(req.params.id);
-    console.log(req.params.id);
-    res.send(`add song to playlist id: ${req.params.id}`);
+    //if (!q) return res.render("songs/search", { queryData: null, playlist });
+    fetch(
+        `${ROOT_URL}/?method=track.getInfo&api_key=${token}&artist=cher&track=believe&format=json`
+    )
+      .then((res) => res.json())
+      .then((songData) => {
+        //const song = songData.track
+        console.log(songData.track.name)
+        res.send(`fecth song data ${songData}`)
+        });
+      
+   //const {name,artist,url} =req.body
+   //console.log('this is req.body',req.body)
+  // playlist.songs.push({name,artist,url})
+   //await playlist.save()
+   //console.log(playlist)
+   
+    //res.send(`add song to playlist id: ${req.params.id}`);
   } catch (err) {
     console.log(err);
   }
