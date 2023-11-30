@@ -66,17 +66,10 @@ async function addToPlaylist(req, res) {
       });
     
     res.redirect(`/playlists/${playlist._id}/search`);
-
-  
-
-  
-
-   
   } catch (err) {
     console.log(err);
   }
 }
-
 module.exports = {
   newSongs,
   search,
