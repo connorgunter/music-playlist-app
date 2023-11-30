@@ -27,11 +27,18 @@ async function search(req, res,queryData) {
     )
       .then((res) => res.json())
       .then((queryData) => {
+        const results = queryData.results.trackmatches.track.map(r => { 
+          r.safe_name = r.name.replace(/\?/g,'%3F')
+          console.log(r.safe_name)
+          return r
+        } )
+        console.log('queryData:', results[1])
         res.render("songs/search", {
           title: `Search Results: ${q}`,
           errorMsg: "",
           queryData,
           playlist,
+          results
         });
       });
   } catch (err) {
@@ -39,18 +46,20 @@ async function search(req, res,queryData) {
   }
 }
 
+// triggered by clicking of + button
 async function addToPlaylist(req, res) {
   const playlist = await Playlist.findById(req.params.id);
+  // console.log('line 46:', req.params)
+  const {name, artist} = req.params
+  // const encodeName = encodeURIComponent(name).replace(/\?/g,'%3F')
+  // console.log('line 49:', encodeName)
   try {
-    //if (!q) return res.render("songs/search", { queryData: null, playlist });
     fetch(
-        `${ROOT_URL}/?method=track.getInfo&api_key=${token}&artist=cher&track=believe&format=json`
-    )
+        `${ROOT_URL}/?method=track.getInfo&api_key=${token}&artist=${artist}&track=${name}&format=json`)
       .then((res) => res.json())
       .then((songData) => {
-        //const song = songData.track
-        console.log(songData.track.name)
-        res.send(`fecth song data ${songData}`)
+        // console.log('line 52:', encodeURIComponent(songData.track.name).replace(/\?/g,'%3F'))
+        res.send(`fetch song data ${songData.track.name}:${songData.track.artist.name}`)
         });
       
    //const {name,artist,url} =req.body

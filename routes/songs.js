@@ -9,6 +9,6 @@ const ensureLoggedIn = require("../config/ensureLoggedIn");
 router.get("/:id/search", ensureLoggedIn, songsCtrl.newSongs);
 router.get("/:id/search/results", songsCtrl.search);
 // GET search results
-router.post("/:id/songs", songsCtrl.addToPlaylist);
+router.post("/:id/songs/:name/:artist", songsCtrl.addToPlaylist);
 
 module.exports = router;
