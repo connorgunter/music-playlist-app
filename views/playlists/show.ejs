@@ -9,7 +9,7 @@
     <% playlist.songs.forEach((s)=>{%>
      <p><%=s.name %> </p> 
       <p><%=s.artist%></p>
-      <a href="<%=s.url%>" target="_blank">Play<a/>
+      <a href="<%=s.url%>" target="_blank">Play</a>
     <% }) %></div>
   <br/>
   <%if (user && playlist.user.equals(user._id)){%>
@@ -18,7 +18,7 @@
     <!-- <form action="/playlists/<%=playlist.id%>/search" method="GET">
       <button type='submit'>Add a Song</button>
     </form> -->
-    <br /><br />
+    <br /><br/>
     <div>
       <form method="POST" action="/playlists/<%= playlist.id %>?_method=DELETE">
         <button class="btn-delete" onclick="return confirm('Are you sure you want to delete <%= playlist.name %>?')" type="submit">Delete Playlist</button>
