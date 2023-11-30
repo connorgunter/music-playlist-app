@@ -23,10 +23,11 @@ const playlistSchema = new Schema(
     songs: [
       {
         title: String,
-        Artist: String,
+        artist: String,
+        url: String,
       },
     ],
-    likes: { type: Number },
+    // likes: { type: Number },
     user: {
       type: Schema.Types.ObjectId,
       ref: "User",
@@ -39,7 +40,6 @@ const playlistSchema = new Schema(
 );
 
 // ICEBOX TO-DO
-
 // playlistSchema.virtual("timeAgo").get(function () {
 //   const now = new Date();
 //   const diffInMillis = now - this.createdAt;

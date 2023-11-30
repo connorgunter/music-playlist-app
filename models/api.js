@@ -1,13 +1,13 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+// const mongoose = require("mongoose");
+// const Schema = mongoose.Schema;
 
-const songSchema = new Schema(
-  {
-    name: String,
-    artist: String,
-    url: String,
-  },
-  { timestamps: true }
-);
+// const songSchema = new Schema(
+//   {
+//     name: String,
+//     artist: String,
+//     url: String,
+//   },
+//   { timestamps: true }
+// );
 
-module.exports = mongoose.model("Song", songSchema);
+// module.exports = mongoose.model("Song", songSchema);

@@ -24,6 +24,8 @@
         <!-- timeAgo to-do -->
         <td><%= p.createdAt.toLocaleDateString() %></td>
         <td>
+          <!-- TO-DO: Use a link instead of form button -->
+          <!-- <a href="/playlists/<%= p.id %>" class="btn-link">DETAILS</a> -->
           <form method="GET" action="/playlists/<%= p.id %>">
             <button type="submit">DETAILS</button>
           </form>

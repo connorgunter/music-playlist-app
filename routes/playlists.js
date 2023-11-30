@@ -1,17 +1,17 @@
 const express = require("express");
 const router = express.Router();
-const playlistCtrl = require("../controllers/playlists");
+const playlistsCtrl = require("../controllers/playlists");
 const ensureLoggedIn = require("../config/ensureLoggedIn");
 
-router.get("/", ensureLoggedIn, playlistCtrl.myIndex);
-// Remember: new route always bfore show
-router.get("/new", ensureLoggedIn, playlistCtrl.new);
-router.get("/:id", playlistCtrl.show);
-// 1. GET /playlists/:id/edit
-router.get("/:id/edit", ensureLoggedIn, playlistCtrl.edit);
-router.post("/", playlistCtrl.create);
-router.delete("/:id", ensureLoggedIn, playlistCtrl.delete);
-// 2. PUT /playlists/:id
-router.put("/:id", playlistCtrl.update);
+// Routes begin at http://localhost:3000/playlists
+
+router.get("/", ensureLoggedIn, playlistsCtrl.myIndex);
+// Remember: 'new' route always before 'show' route
+router.get("/new", ensureLoggedIn, playlistsCtrl.new);
+router.get("/:id", playlistsCtrl.show);
+router.get("/:id/edit", ensureLoggedIn, playlistsCtrl.edit);
+router.post("/", playlistsCtrl.create);
+router.delete("/:id", ensureLoggedIn, playlistsCtrl.delete);
+router.put("/:id", playlistsCtrl.update);
 
 module.exports = router;

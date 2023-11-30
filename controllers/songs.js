@@ -1,10 +1,10 @@
-const Song = require("../models/api");
+// const Song = require("../models/api");
 // const fetch = require("node-fetch");
 const Playlist = require("../models/playlist");
 const token = process.env.LASTFM_TOKEN;
 const ROOT_URL = "https://ws.audioscrobbler.com/2.0";
 
-async function add(req, res) {
+async function newSongs(req, res) {
   req.body.user = req.user._id;
   req.body.userName = req.user.name;
   req.body.userAvatar = req.user.avatar;
@@ -44,17 +44,14 @@ async function addToPlaylist(req, res) {
   try {
     const playlist = await Playlist.findById(req.params.id);
     console.log(req.params.id);
-    // const song = await Song.find();
-    res.send("working");
+    res.send(`add song to playlist id: ${req.params.id}`);
   } catch (err) {
     console.log(err);
   }
 }
 
-// async function addToPlaylist(req, res) {}
-
 module.exports = {
-  add,
+  newSongs,
   search,
   addToPlaylist,
 };
