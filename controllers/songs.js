@@ -1,5 +1,3 @@
-// const Song = require("../models/api");
-// const fetch = require("node-fetch");
 const Playlist = require("../models/playlist");
 const token = process.env.LASTFM_TOKEN;
 const ROOT_URL = "https://ws.audioscrobbler.com/2.0";
@@ -71,7 +69,6 @@ async function addToPlaylist(req, res) {
         playlist.save();
         console.log(songData.track);
       });
-
     fetch(
       `${ROOT_URL}/?method=track.search&track=${q}&api_key=${token}&format=json&limit=10`
     )
