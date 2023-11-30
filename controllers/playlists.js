@@ -49,6 +49,16 @@ async function myIndex(req, res) {
 
 async function index(req, res) {
   try {
+    const allPlaylists = await Playlist.find().sort("likes");
+    res.render("index", { title: "All Playlists", allPlaylists });
+  } catch (err) {
+    console.log("index error", err);
+  }
+}
+
+
+async function sort(req, res) {
+  try {
     let query;
     let allPlaylists;
     const selectedMood = req.query.mood
@@ -61,8 +71,8 @@ async function index(req, res) {
       allPlaylists = await Playlist.find(query).sort("mood");
     }
     res.render("index", { title: "All Playlists", allPlaylists });
-  } catch (err) {
-    console.log("index error", err);
+  } catch(err) {
+    console.log("sort error", err);
   }
 }
 
@@ -122,4 +132,5 @@ module.exports = {
   delete: deletePlaylist,
   edit,
   update,
+  sort
 };
