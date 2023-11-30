@@ -111,12 +111,16 @@ nav {
 }
 
 #create-button,
-#edit-button {
+#edit-button,
+.btn-link {
   background-color: black;
   color: white;
   border-radius: 10px;
   padding: 10px 15px;
   cursor: pointer;
+}
+.btn-link {
+  text-decoration: none;
 }
 
 #create-button:hover,
