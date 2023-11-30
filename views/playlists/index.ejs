@@ -10,30 +10,26 @@
         <th>Description</th>
         <th>Mood</th>
         <th>Created</th>
-        <th>Details</th>
-        <th>Delete?</th>
+        <th colspan="2">Actions</th>
       </tr>
     </thead>
     <tbody>
       <% myPlaylists.forEach(function(p){%>
         <tr class="selector">
-          
         <td><%= p.name %></td>
         <td><%= p.description %></td>
         <td><%= p.mood %></td>
         <!-- timeAgo to-do -->
         <td><%= p.createdAt.toLocaleDateString() %></td>
         <td>
-          <!-- TO-DO: Use a link instead of form button -->
-          <!-- <a href="/playlists/<%= p.id %>" class="btn-link">DETAILS</a> -->
-          <form method="GET" action="/playlists/<%= p.id %>">
+          <a href="/playlists/<%= p.id %>" class="btn-link">DETAILS</a>
+          <!-- <form method="GET" action="/playlists/<%= p.id %>">
             <button type="submit">DETAILS</button>
-          </form>
+          </form> -->
         </td>
-        <!-- Delete button -->
         <td>
             <form method="POST" action="/playlists/<%= p.id %>/?_method=DELETE">
-                <button id="delete-button" type="submit">X</button>
+                <button type="submit" class="btn-delete">X</button>
             </form>
         </td>
         <%}) %>

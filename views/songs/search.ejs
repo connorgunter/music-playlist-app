@@ -15,8 +15,7 @@
         <tr>
             <th>Title</th>
             <th>Artist</th>
-            <th>Play Song</th>
-            <th>Add to Playlist</th>
+            <th colspan="2">Action</th>
         </tr>
     </thead>
     <tbody>
@@ -24,10 +23,10 @@
         <tr>
           <td><%= r.name %></td>
           <td><%= r.artist %></td>
-          <td><a href="<%= r.url %>" target="_blank">Play Song</a></td>
+          <td><a href="<%= r.url %>" target="_blank" class="btn-link">Play Song</a></td>
           <td>
             <form method="POST" action="/playlists/<%= playlist.id%>/songs/<%= r.safe_name %>/<%= r.artist %>">
-              <button type="submit">+</button>
+              <button type="submit" class="btn-add">+ Add</button>
             </form>
           </td>
         </tr>
