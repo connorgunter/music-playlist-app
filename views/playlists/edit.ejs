@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 <div class="main-container">
 <%if (user && playlist.user.equals(user._id)){%>
-<form id="edit-form" action="/playlists/<%= playlist.id %>?_method=PUT" method="POST">
+  <form id="edit-form" action="/playlists/<%= playlist.id %>?_method=PUT" method="POST">
   <div>
     <label for="name">Edit Name:</label>
     <input type="text" name="name" id="name" value="<%= playlist.name %>" required/>

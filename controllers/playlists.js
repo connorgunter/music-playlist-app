@@ -49,7 +49,7 @@ async function myIndex(req, res) {
 
 async function index(req, res) {
   try {
-    const allPlaylists = await Playlist.find().sort("likes");
+    const allPlaylists = await Playlist.find().sort({createdAt: -1});
     res.render("index", { title: "All Playlists", allPlaylists });
   } catch (err) {
     console.log("index error", err);
