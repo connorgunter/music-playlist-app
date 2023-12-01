@@ -22,7 +22,7 @@
 }
 
 body {
-  background: #a18cb4;
+  background:  var(--background-gradient);
   padding-left: 50px;
   padding-right: 50px;
   font: 14px var(--open-sans);
@@ -36,7 +36,7 @@ header {
 table {
   border-collapse: collapse;
   width: 100%;
-  min-height: 150px;
+  min-height: 100px;
 }
 
 th,
@@ -172,15 +172,14 @@ button,
 .btn-link {
   background-color: var(--dark-green);
   color: white;
-  border-radius: 10px;
   padding: 10px 15px;
+  border-radius: 10px;
   cursor: pointer;
   text-transform: uppercase;
 }
 
 button {
   border-width: 0;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 .btn-link {
@@ -273,7 +272,7 @@ button:hover,
 .credits-container {
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
+  margin-top: 65%;
 }
 
 .credits-title {
@@ -284,4 +283,9 @@ button:hover,
   list-style: none;
   padding: 0;
   margin-top: -5px;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
 }
