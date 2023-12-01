@@ -15,7 +15,6 @@ const playlistsRouter = require("./routes/playlists");
 const songsRouter = require("./routes/songs");
 const app = express();
 
-// view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
@@ -45,9 +44,9 @@ app.use("/playlists", playlistsRouter);
 app.use("/playlists", songsRouter);
 
 // catch 404 and forward to error handler
-// app.use(function (req, res, next) {
-//   next(createError(404));
-// });
+app.use(function (req, res, next) {
+  next(createError(404));
+});
 
 // error handler
 app.use(function (err, req, res, next) {

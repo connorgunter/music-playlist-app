@@ -1,54 +1,56 @@
 <%- include('./partials/header') %>
 <div class="main-container">
-<div class="table-container">
+  <div class="table-container">
     <form action="/playlists/sort" method="GET">
-    <div class="sort-container">
-    <select class="filter-dropdown" name="mood">
-        <option value="All Moods">All Moods</option>
-        <option value="Chill">Chill</option>
-        <option value="Cozy">Cozy</option>
-        <option value="Feel-good">Feel-good</option>
-        <option value="Nostalgic">Nostalgic</option>
-        <option value="Roadtrip">Roadtrip</option>
-        <option value="Romantic">Romantic</option>
-        <option value="Sad">Sad</option>
-        <option value="Study">Study</option>
-        <option value="Upbeat">Upbeat</option>
-        <option value="Workout">Workout</option>
-</select>
-<button class="btn-filter">Filter</button>
-</div>
-</form>
+      <div class="sort-container">
+        <select class="filter-dropdown" name="mood">
+          <option value="All Moods">All Moods</option>
+          <option value="Chill">Chill</option>
+          <option value="Cozy">Cozy</option>
+          <option value="Feel-good">Feel-good</option>
+          <option value="Nostalgic">Nostalgic</option>
+          <option value="Roadtrip">Roadtrip</option>
+          <option value="Romantic">Romantic</option>
+          <option value="Sad">Sad</option>
+          <option value="Study">Study</option>
+          <option value="Upbeat">Upbeat</option>
+          <option value="Workout">Workout</option>
+        </select>
+        <button class="btn-filter">Filter</button>
+      </div>
+    </form>
     <table>
-        <thead>
-            <tr>
-                <th>User</th>
-                <th>Playlist Name</th>
-                <th>Description</th>
-                <th>Mood</th>
-                <th>Created</th>
-                <th>Details</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% allPlaylists.forEach(function(p){%>
-                <tr>
-                    <td class="google-user"><img alt="avatar" src="<%= p.userAvatar %>" referrerpolicy="no-referrer" ><%= p.userName %></td>
-                    <td><%= p.name  %></td>  
-                    <td><%= p.description %></td>
-                    <td><%= p.mood %></td>
-                    <!-- ICEBOX: change to timeAgo -->
-                    <td><%= p.createdAt.toLocaleDateString() %></td>
-                    <td>
-                    <a href="/playlists/<%= p.id %>" class="btn-link">DETAILS</a>
-                        <!-- <form method="GET" action="/playlists/<%= p.id %>">
-                            <button type="submit">DETAILS</button>
-                        </form> -->
-                    </td>
-                    <%}) %>
-                </tr>
-            </tbody>
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Playlist Name</th>
+          <th>Description</th>
+          <th>Mood</th>
+          <th>Created</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% allPlaylists.forEach(function(p){%>
+        <tr>
+          <td class="google-user">
+            <img
+              alt="avatar"
+              src="<%= p.userAvatar %>"
+              referrerpolicy="no-referrer"
+            /><%= p.userName %>
+          </td>
+          <td><%= p.name %></td>
+          <td><%= p.description %></td>
+          <td><%= p.mood %></td>
+          <td><%= p.createdAt.toLocaleDateString() %></td>
+          <td>
+            <a href="/playlists/<%= p.id %>" class="btn-link">DETAILS</a>
+          </td>
+          <%}) %>
+        </tr>
+      </tbody>
     </table>
-</div>
+  </div>
 </div>
 <%- include('./partials/footer') %>

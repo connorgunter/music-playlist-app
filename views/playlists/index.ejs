@@ -1,7 +1,6 @@
 <% if (user){%>
 <%- include('../partials/header') %>
 <div class="main-container">
-
 <div class="table-container">
   <table>
     <thead>
@@ -19,13 +18,9 @@
         <td><%= p.name %></td>
         <td><%= p.description %></td>
         <td><%= p.mood %></td>
-        <!-- timeAgo to-do -->
         <td><%= p.createdAt.toLocaleDateString() %></td>
         <td>
           <a href="/playlists/<%= p.id %>" class="btn-link">DETAILS</a>
-          <!-- <form method="GET" action="/playlists/<%= p.id %>">
-            <button type="submit">DETAILS</button>
-          </form> -->
         </td>
         <td>
             <form method="POST" action="/playlists/<%= p.id %>/?_method=DELETE">

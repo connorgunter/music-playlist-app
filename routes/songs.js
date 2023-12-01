@@ -5,10 +5,8 @@ const ensureLoggedIn = require("../config/ensureLoggedIn");
 
 // Routes begin at http://localhost:3000/playlists
 
-// GET search page
 router.get("/:id/search", ensureLoggedIn, songsCtrl.newSongs);
 router.get("/:id/search/results", songsCtrl.search);
-// GET search results
 router.post("/:id/songs/:name/:artist", songsCtrl.addToPlaylist);
 router.delete("/:id/songs/:songId", songsCtrl.deleteSong);
 

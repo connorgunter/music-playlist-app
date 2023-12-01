@@ -54,7 +54,7 @@ nav {
   text-decoration: none;
   padding: 10px;
   color: white;
-  margin-right: 20px; /* left-nav spacing between menu items */
+  margin-right: 20px;
 }
 
 .left-nav a:hover,
@@ -162,8 +162,6 @@ label {
   font-size: 18px;
 }
 
-/* button styling */
-
 button,
 .btn-link {
   background-color: var(--dark-green);
@@ -187,7 +185,8 @@ button {
   color: var(--black);
 }
 
-.btn-edit, .btn-return {
+.btn-edit,
+.btn-return {
   background-color: var(--dark-purple);
 }
 
@@ -206,7 +205,7 @@ button {
 
 button:hover,
 .btn-link:hover {
-  background-color: darkcyan; /* Darker color on hover */
+  background-color: darkcyan;
 }
 
 .btn-add:hover {
@@ -214,7 +213,8 @@ button:hover,
   color: white;
 }
 
-.btn-edit:hover, .btn-return:hover {
+.btn-edit:hover,
+.btn-return:hover {
   background-color: darkmagenta;
 }
 
@@ -235,6 +235,7 @@ button:hover,
 .google-user img {
   border-radius: 50%;
   height: 40px;
+  margin-right: 10px;
 }
 
 .logo {
