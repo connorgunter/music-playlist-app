@@ -36,7 +36,9 @@ async function show(req, res) {
 
 async function myIndex(req, res) {
   try {
-    const myPlaylists = await Playlist.find({ user: req.user._id }).sort({createdAt: -1});
+    const myPlaylists = await Playlist.find({ user: req.user._id }).sort({
+      createdAt: -1,
+    });
     req.body.userName = req.user.name;
     req.body.userAvatar = req.user.avatar;
     res.render("playlists/index", { title: "My Playlists", myPlaylists });
@@ -47,29 +49,28 @@ async function myIndex(req, res) {
 
 async function index(req, res) {
   try {
-    const allPlaylists = await Playlist.find().sort({createdAt: -1});
+    const allPlaylists = await Playlist.find().sort({ createdAt: -1 });
     res.render("index", { title: "All Playlists", allPlaylists });
   } catch (err) {
     console.log("index error", err);
   }
 }
 
-
 async function sort(req, res) {
   try {
     let query;
     let allPlaylists;
-    const selectedMood = req.query.mood
+    const selectedMood = req.query.mood;
     if (selectedMood !== "All Moods") {
-      query = {mood: selectedMood}
+      query = { mood: selectedMood };
     }
     if (selectedMood === "All Moods") {
-      allPlaylists = await Playlist.find(query).sort({createdAt: -1});
+      allPlaylists = await Playlist.find(query).sort({ createdAt: -1 });
     } else {
       allPlaylists = await Playlist.find(query).sort("mood");
     }
     res.render("index", { title: "All Playlists", allPlaylists });
-  } catch(err) {
+  } catch (err) {
     console.log("sort error", err);
   }
 }
@@ -106,14 +107,9 @@ async function edit(req, res) {
 async function update(req, res) {
   try {
     const playlist = await Playlist.findById(req.params.id);
-    // rename each property based on edit form values
-    // note to come back and revisit this approach
     playlist.name = req.body.name;
     playlist.description = req.body.description;
     playlist.mood = req.body.mood;
-
-
-    // save the update
     await playlist.save();
     res.redirect(`/playlists/${req.params.id}`);
   } catch (err) {
@@ -130,5 +126,5 @@ module.exports = {
   delete: deletePlaylist,
   edit,
   update,
-  sort
+  sort,
 };

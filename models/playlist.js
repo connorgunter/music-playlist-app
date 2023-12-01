@@ -39,13 +39,4 @@ const playlistSchema = new Schema(
   { timestamps: true }
 );
 
-// ICEBOX TO-DO
-// playlistSchema.virtual("timeAgo").get(function () {
-//   const now = new Date();
-//   const diffInMillis = now - this.createdAt;
-//   const diffInMinutes = Math.floor(diffInMillis / (1000 * 60));
-
-//   return `${diffInMinutes} minutes ago`;
-// });
-
 module.exports = mongoose.model("Playlist", playlistSchema);
