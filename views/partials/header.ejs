@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- favicon -->
-    <link rel="favicon icon" type="image/png" href="/images/favicon.png">
+    <link rel="favicon icon" type="image/png" href="/images/icon.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <% title = typeof title !== 'undefined' ? title : "Error" %>
@@ -15,10 +14,9 @@
 </head>
 <body>
     <div class="top-page">
-        <img class="logo" src="/images/favicon.png">
+        <img class="logo" src="/images/icon.png">
         <h1 id="title-header">BeatBuddy</h1>
     </div>
-    
     <nav>
     <div class="left-nav">
         <a href="/" <%- title === 'All Playlists' ? 'class="active"' : '' %>>HOME</a>
@@ -27,7 +25,6 @@
         <a href="/playlists/new" <%- title === 'Create a Playlist' ? 'class="active"' : '' %>>CREATE A PLAYLIST</a>
         <% } %>
     </div>
-
     <div class="right-nav">
         <% if (user) { %>
         <img class="google-user-nav" alt="avatar" src="<%= user.avatar %>" referrerpolicy="no-referrer">
@@ -37,7 +34,6 @@
         <% } %>
     </div>
     </nav>
-
     <header>
         <h1><%= title %></h1>
     </header>
