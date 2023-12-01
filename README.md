@@ -11,7 +11,7 @@ Link to our app deployed on Heroku:
 # 1. Home Page:
 Upon loading the app, users are directed to the home page. Here, they can seamlessly log in to create playlists or choose to browse others' curated collections.
 
-<img width="1428" alt="Screen Shot 2023-12-01 at 9 37 34 AM" src="https://github.com/connorgunter/music-playlist-app/assets/31771870/de8bd39b-8bef-4938-972d-dd980d533063">
+<img width="1428" alt="Screen Shot 2023-12-01 at 10 10 17 AM" src="https://github.com/connorgunter/music-playlist-app/assets/31771870/c519b7fd-9de4-49df-a05b-c0a48668814b">
 
 # 2. Authentication:
 Securely log in via Google account authentication by clicking "Log In" at the top right of the app.
@@ -77,9 +77,9 @@ The team would like to thank Last.FM for their collaboration and assistance in m
 # Icebox features: (Scheduled for Future Implementation) 🧊
 - **Collaborative Playlist Editing: Enhance your playlist creation experience by adding collaborators.**
 - **Playlist Likes and Trends: Introduce a 'like' feature for playlists, showcasing the trendiest lists on the main screen.**
-- **Fix table stying when you're in a different user's playlist show page AND it has more than 1 song**
 - **Fix spacing of credits in footer. Currently it is too far below the page**
 - **Allow for adding a song where the title contains a '/'**
-
+- **Mobile Responsiveness**
+- **Better error messages for user experience**
 
 
