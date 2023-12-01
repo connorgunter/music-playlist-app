@@ -27,7 +27,6 @@ const playlistSchema = new Schema(
         url: String,
       },
     ],
-    // likes: { type: Number },
     user: {
       type: Schema.Types.ObjectId,
       ref: "User",
