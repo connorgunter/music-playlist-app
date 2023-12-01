@@ -22,7 +22,7 @@
 }
 
 body {
-  background:  var(--background-gradient);
+  background: var(--background-gradient);
   padding-left: 50px;
   padding-right: 50px;
   font: 14px var(--open-sans);
@@ -31,28 +31,6 @@ body {
 
 header {
   text-align: center;
-}
-
-table {
-  border-collapse: collapse;
-  width: 100%;
-  min-height: 100px;
-}
-
-th,
-td {
-  padding: 10px;
-  border: 1px solid;
-}
-
-th {
-  text-transform: uppercase;
-}
-
-label {
-  display: block;
-  font-weight: bold;
-  font-size: 20px;
 }
 
 nav {
@@ -123,7 +101,7 @@ nav {
   background-color: var(--light-green);
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 80%;
+  width: 95%;
 }
 
 .search-container {
@@ -135,16 +113,31 @@ nav {
   width: 400px;
 }
 
-/* select {
-  margin: 0;
-  background-image: linear-gradient(45deg, transparent 50%, gray 50%),
-    linear-gradient(135deg, gray 50%, transparent 50%),
-    radial-gradient(#ddd 70%, transparent 72%);
-  background-position: calc(100% - 20px) calc(1em + 2px),
-    calc(100% - 15px) calc(1em + 2px), calc(100% - 0.5em) 0.5em;
-  background-size: 5px 5px, 5px 5px, 1.5em 1.5em;
-  background-repeat: no-repeat;
-} */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 20px 0;
+}
+
+th,
+td {
+  padding: 10px;
+  border: 1px solid;
+}
+
+th {
+  text-transform: uppercase;
+}
+
+td {
+  height: 60px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  font-size: 20px;
+}
 
 .form-input,
 .form-textarea,
@@ -157,8 +150,11 @@ nav {
   font-size: 18px;
 }
 
+.search-form {
+  width: 250px;
+}
+
 .search-input {
-  /* width: 50%; */
   border-radius: 10px;
   border: 1px solid var(--dark-green);
   padding: 10px;
@@ -191,18 +187,21 @@ button {
   color: var(--black);
 }
 
-.btn-edit {
+.btn-edit, .btn-return {
   background-color: var(--dark-purple);
 }
 
 .btn-delete {
   background-color: red;
   margin: 0px 10px;
-  
 }
 
 .btn-lg {
   font-size: 18px;
+}
+
+.btn-filter {
+  font: var(--open-sans);
 }
 
 button:hover,
@@ -211,21 +210,17 @@ button:hover,
 }
 
 .btn-add:hover {
-  background-color: green;
+  background-color: var(--dark-green);
+  color: white;
 }
 
-.btn-edit:hover {
+.btn-edit:hover, .btn-return:hover {
   background-color: darkmagenta;
 }
 
 .btn-delete:hover {
   background-color: maroon;
 }
-
-/* .selector:hover {
-  cursor: pointer;
-  background-color: white;
-} */
 
 .login img {
   height: 30px;
@@ -256,19 +251,20 @@ button:hover,
 .sort-container {
   display: flex;
   justify-content: flex-end;
-  margin-bottom: 15px;
 }
-
-/* .filter-label {
-  margin: 10px;
-  font-size: 12px;
-} */
 
 .filter-dropdown {
   margin-right: 10px;
   width: 150px;
   border-radius: 5px;
   padding: 5px;
+  font: var(--open-sans);
+}
+
+.edit-page {
+  margin: 5px 10px 0 10px;
+  font-size: 18px;
+  text-align: left;
 }
 
 .credits-container {
@@ -287,27 +283,17 @@ button:hover,
   margin-top: -5px;
 }
 
-.search-form {
-  display: flex;
-  align-items: center;
-}
-
-.edit-page {
-  font-size: 18px;
-  text-align: left;
-}
-
 .edit-page-btns {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+}
+
+.edit-page-left,
+.edit-page-right {
+  display: flex;
   align-items: center;
 }
 
-.edit-page-btns a {
-  margin: 0 10px;
-}
-
-.song-label {
-  text-align: center;
-  font-size: 18px;
+.edit-page-left {
+  gap: 20px;
 }
