@@ -9,26 +9,40 @@ Link to our app in Heroku:
 [Heroku](https://beatbuddy-7a9e4cc3fd5d.herokuapp.com/)
 
 # Screenshots of our app:
-User is prompted to sign in with their google account when they click Log In or any page that requires authentication(top right of our app)
+1. Authentication:
+Users are seamlessly guided into the app through a secure Google account sign-in process. Simply click "Log In," situated at the top right of our app, to access personalized features.
+
 <img width="1419" alt="Screen Shot 2023-11-30 at 10 42 23 PM" src="https://github.com/connorgunter/music-playlist-app/assets/31771870/93f2e4a6-4c22-4a64-810c-456eaf18e660">
 
-When a user logs in, it will bring them to their "My Playlists" page, the user can then delete playlists or go to the playlist details page
+2. My Playlists:
+Upon successful authentication, users are directed to their personalized "My Playlists" page. Here, they can effortlessly manage playlists, including deletion or exploration of playlist details.
+
 <img width="1419" alt="Screen Shot 2023-11-30 at 10 41 08 PM" src="https://github.com/connorgunter/music-playlist-app/assets/31771870/b7a74021-2f95-4f28-b34f-67fef5dd3f02">
 
 
-A user has the ability to create a playlist if they choose, by clicking the "Create a Playlist" tab in the navigation bar, when they reach this page, they can choose a name, description, and mood for their playlist
+3. Create a Playlist:
+Users have the creative freedom to craft new playlists by clicking on the "Create a Playlist" tab in the navigation bar. Customize your playlist with a unique name, description, and mood.
+
 <img width="1419" alt="Screen Shot 2023-11-30 at 10 41 18 PM" src="https://github.com/connorgunter/music-playlist-app/assets/31771870/90059d49-f94d-402d-922f-652c5af3df3b">
 
-When a user clicks "Details" on the "My Playlist" page, they will see the name of playlist, description, mood, and all the songs currently in the playlist, as a user you can also "Play" the respective song, or delete(X), the song from the playlist and "Edit Playlist", "Add Songs", or "Delete Playlist"
+4. Playlist Details:
+Delve into the details of your playlists with the "Details" option. View and interact with playlist information, including name, description, mood, and the list of songs. Play, delete, edit, or add songs to curate the perfect musical experience.
+
 <img width="1419" alt="Screen Shot 2023-11-30 at 10 41 39 PM" src="https://github.com/connorgunter/music-playlist-app/assets/31771870/23b3672e-3a2e-46f2-a46c-534f83ee55f8">
 
-If a user decides to "Add Songs", they will be brought to the "Search a Song" page, where they can search for whatever song or artist they are looking for, if they want to go back to the playlist page, they can do that by clicking "Return to Playlist"
+5. Add Songs:
+Enhance your playlists by seamlessly adding songs through the "Add Songs" feature. A user-friendly search interface allows you to explore and add songs to your playlists effortlessly.
+
 <img width="1419" alt="Screen Shot 2023-11-30 at 10 41 54 PM" src="https://github.com/connorgunter/music-playlist-app/assets/31771870/947c0081-b8b7-4950-9b1d-8646102152ab">
 
-When a user searches for a song, they will be prompted with a search results page, a user can then go and add that song to their playlist ("ADD") or play the song ("PLAY"), when a user adds a song to their playlist, the "ADD" button will turn into a "ADDED" button confirming it succesfully was added to their playlist
+6. Search Results:
+Efficiently search for your favorite songs, review search results, and promptly add them to your playlist. The interface provides a smooth experience, allowing you to play or confirm the addition of songs to your curated list.
+
 <img width="1419" alt="Screen Shot 2023-11-30 at 10 42 11 PM" src="https://github.com/connorgunter/music-playlist-app/assets/31771870/0541eccf-711d-47e0-8c43-83274e9fd841">
 
-As a user you have the ability to edit a playlist, by clicking "EDIT PLAYLIST" on the Playlist Details page, they can then change the Name, Description and Mood
+7. Edit Playlist:
+Tailor your playlists to your evolving tastes by utilizing the "Edit Playlist" feature. Adjust the name, description, and mood to keep your musical collections up-to-date.
+
 <img width="1419" alt="Screen Shot 2023-11-30 at 10 41 47 PM" src="https://github.com/connorgunter/music-playlist-app/assets/31771870/d9ef032e-a348-421c-aaa4-2b6471b94dd5">
 
 
