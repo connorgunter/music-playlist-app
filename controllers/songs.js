@@ -36,6 +36,7 @@ async function search(req, res, queryData) {
           queryData,
           playlist,
           results,
+          q,
           isSongInPlaylist,
         });
       });
@@ -53,22 +54,20 @@ function isSongInPlaylist(playlist, r) {
 }
 
 async function addToPlaylist(req, res) {
+  const q = req.body.q;
   const playlist = await Playlist.findById(req.params.id);
   const { name, artist } = req.params;
   try {
-    fetch(
+    const response = await fetch(
       `${ROOT_URL}/?method=track.getInfo&api_key=${token}&artist=${artist}&track=${name}&format=json`
-    )
-      .then((res) => res.json())
-      .then((songData) => {
-        playlist.songs.push({
-          name: songData.track.name,
-          artist: songData.track.artist.name,
-          url: songData.track.url,
-        });
-        playlist.save();
-        console.log(songData.track);
-      });
+    );
+    const songData = await response.json();
+    playlist.songs.push({
+      name: songData.track.name,
+      artist: songData.track.artist.name,
+      url: songData.track.url,
+    });
+    await playlist.save();
     fetch(
       `${ROOT_URL}/?method=track.search&track=${q}&api_key=${token}&format=json&limit=10`
     )
@@ -84,7 +83,10 @@ async function addToPlaylist(req, res) {
           errorMsg: "",
           queryData,
           playlist,
+          response,
+          songData,
           results,
+          q,
           isSongInPlaylist,
         });
       });
@@ -93,8 +95,29 @@ async function addToPlaylist(req, res) {
   }
 }
 
+async function deleteSong(req, res) {
+  try {
+    const playlist = await Playlist.findById(req.params.id);
+    console.log("PLAYLISTID", playlist);
+    const songId = req.params.songId;
+    console.log("SONGID", songId);
+    req.body.user = req.user._id;
+    req.body.userName = req.user.name;
+    req.body.userAvatar = req.user.avatar;
+    const songIdx = playlist.songs.findIndex(
+      (song) => song._id.toString() === songId
+    );
+    playlist.songs.splice(songIdx, 1);
+    await playlist.save();
+    res.redirect(`/playlists/${playlist._id}`);
+  } catch (err) {
+    console.log("index error", err);
+  }
+}
+
 module.exports = {
   newSongs,
   search,
   addToPlaylist,
+  deleteSong,
 };

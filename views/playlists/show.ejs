@@ -12,7 +12,7 @@
         <tr>
           <th>Name</th>
           <th>Artist</th>
-          <th>URL</th>
+          <th colspan="2">Action</th>
         </tr>
       </thead>
       <tbody>
@@ -20,7 +20,14 @@
      <tr>
         <td><%=s.name %></td>
         <td><%=s.artist%></td>
+        <td><a href="<%=s.url%>" target="_blank">Play</a></td>
+        <%if (user && playlist.user.equals(user._id)){%>
+        <form method="POST" action="/playlists/<%=playlist.id%>/songs/<%= s.id%>?_method=DELETE">
+          <td><button class="btn-delete" type='submit'>X</button></td>
+        </form>
+        <%}%>
         <td><a href="<%=s.url%>" target="_blank" class="btn-link">Play</a></td>
+
     <% }) %>
     </tr>
   </thead>

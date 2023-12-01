@@ -10,5 +10,6 @@ router.get("/:id/search", ensureLoggedIn, songsCtrl.newSongs);
 router.get("/:id/search/results", songsCtrl.search);
 // GET search results
 router.post("/:id/songs/:name/:artist", songsCtrl.addToPlaylist);
+router.delete("/:id/songs/:songId", songsCtrl.deleteSong);
 
 module.exports = router;
