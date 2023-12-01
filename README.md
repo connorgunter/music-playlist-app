@@ -51,10 +51,10 @@ Tailor your playlists to your evolving tastes by utilizing the "Edit Playlist" f
 
 
 # Technologies used: 💻
-- **Node.js**: 
-- **Express**: 
-- **MongoDB**: 
-- **Last.FM_API**:
+- **Node.js**
+- **Express**
+- **MongoDB**
+- **Last.FM_API**
 
 # App creators: 🚀
 - **Zach Kurfirst**
@@ -66,7 +66,7 @@ Tailor your playlists to your evolving tastes by utilizing the "Edit Playlist" f
 # Acknowledgments 🙌
 The team would like to thank Last.FM for their collaboration and assistance in making BeatBuddy a success. Their API played a crucial role in shaping the app's functionality, enriching the user experience.
 
-# Icebox features: 🧊
+# Icebox features:: (Scheduled for Future Implementation) 🧊
 - **Collaborative Playlist Editing: Enhance your playlist creation experience by adding collaborators.**
 - **Playlist Likes and Trends: Introduce a 'like' feature for playlists, showcasing the trendiest lists on the main screen.**
 - **Fix table stying when you're in a different user's playlist show page AND it has more than 1 song**
