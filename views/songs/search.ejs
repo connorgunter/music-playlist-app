@@ -2,16 +2,13 @@
 <div class="main-container">
   <div class="table-container">
     <div class="search-container">
-    <form method="GET" action="/playlists/<%= playlist.id%>/search/results" class="search-form">
-  <input class="search-input" type="text" name="q" placeholder="Search for a song..." required/>
+    <form method="GET" action="/playlists/<%= playlist.id%>/search/results">
+  <input class="search-input search-form" type="text" name="q" placeholder="Search for a song..." required/>
   <button type="submit" class="btn-lg">Search</button>
 </form><br>
-<a href="/playlists/<%=playlist.id%>" class="btn-link btn-lg">Return to Playlist</a>
-
-
+<a href="/playlists/<%=playlist.id%>" class="btn-link btn-lg btn-return">Return to Playlist</a>
 </div>
 <p><%= errorMsg %></p>
-
 <div class="query-data">
 <% if (queryData) { %>
   <table>

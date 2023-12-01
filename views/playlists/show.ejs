@@ -1,66 +1,51 @@
 <%- include('../partials/header') %>
 <section class="main-container">
-<section class="table-container">
-  <div class="edit-page">
-  <div><strong>Description: </strong><%= playlist.description %></div>
-  <br />
-  <div><strong>Mood: </strong><%= playlist.mood %></div>
-  <br />
-  </div>
-   <% if (playlist.songs.length !== 0) { %>
-  <strong class="song-label">Songs: </strong>
-  <br><br>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Artist</th>
-          <th colspan="2">Action</th>
-        </tr>
-      </thead>
-      <tbody>
-      
-    <% playlist.songs.forEach((s)=>{%>
-     <tr>
-        <td><%=s.name %></td>
-        <td><%=s.artist%></td>
-        <td><a href="<%=s.url%>" target="_blank" class="btn-link">Play</a></td>
-        <%if (user && playlist.user.equals(user._id)){%>
-        <form method="POST" action="/playlists/<%=playlist.id%>/songs/<%= s.id%>?_method=DELETE">
-          <td><button class="btn-delete" type='submit'>X</button></td>
-        </form>
-        <%}%>
-        
-
-    <% }) %>
-    </tr>
-  </thead>
-</table>
-
-<% } else { %>
-  <p>This playlist has no songs. Click ADD SONGS to begin!</p>
-<% } %>
-
-
-  <br/>
-  <%if (user && playlist.user.equals(user._id)){%>
-    <div class="edit-page-btns">
-    <a href="/playlists/<%= playlist.id %>/edit" class="btn-lg btn-link btn-edit">Edit Playlist</a>
-    <a href="/playlists/<%=playlist.id%>/search" class="btn-lg btn-link btn-add">Add Songs</a>
-    <!-- <form action="/playlists/<%=playlist.id%>/search" method="GET">
-      <button type='submit'>Add a Song</button>
-    </form> -->
-    <!-- <br /><br/> -->
-    <div>
-      <form method="POST" action="/playlists/<%= playlist.id %>?_method=DELETE">
-        <button class="btn-delete btn-lg" onclick="return confirm('Are you sure you want to delete <%= playlist.name %>?')" type="submit">Delete Playlist</button>
-      </form>
+  <section class="table-container">
+    <div class="edit-page">
+      <div><strong>Description: </strong><%= playlist.description %></div>
+      <br />
+      <div><strong>Mood: </strong><%= playlist.mood %></div>
+      <br />
     </div>
-    </div>
-  <%}%>
-
-</section>
-</section>
-
+    <% if (playlist.songs.length !== 0) { %>
+      <table>
+        <thead>
+          <tr>
+            <th>Song Name</th>
+            <th>Artist</th>
+            <th colspan="2">Song Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% playlist.songs.forEach((s)=>{%>
+            <tr>
+              <td><%=s.name %></td>
+              <td><%=s.artist%></td>
+              <td><a href="<%=s.url%>" target="_blank" class="btn-link">Play</a></td>
+              <%if (user && playlist.user.equals(user._id)){%>
+                <form method="POST" action="/playlists/<%=playlist.id%>/songs/<%= s.id%>?_method=DELETE">
+                  <td><button class="btn-delete" type='submit'>X</button></td>
+                </form>
+                <%}%>
+                <% }) %>
+              </tr>
+            </thead>
+          </table>
+          <% } else { %>
+            <p>This playlist has no songs.</p>
+            <% } %>
+            <br/>
+            <%if (user && playlist.user.equals(user._id)){%>
+              <div class="edit-page-btns">
+                <div class="edit-page-left">
+                <a href="/playlists/<%=playlist.id%>/search" class="btn-lg btn-link btn-add">+ Add Songs</a>
+                <a href="/playlists/<%= playlist.id %>/edit" class="btn-lg btn-link btn-edit">Edit Playlist</a>
+                </div>
+                  <form class="edit-page-right" method="POST" action="/playlists/<%= playlist.id %>?_method=DELETE">
+                    <button class="btn-delete btn-lg" onclick="return confirm('Are you sure you want to delete <%= playlist.name %>?')" type="submit">Delete Playlist</button>
+                  </form>
+              </div>
+              <%}%>
+            </section>
+          </section>
 <%- include('../partials/footer') %>
