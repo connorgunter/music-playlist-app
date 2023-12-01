@@ -7,6 +7,8 @@
   --light-green: #dbf2e1;
   --light-pink: #e5d4d1;
   --gradient: linear-gradient(to right, #24777d,#b8aac5, #7a688b);
+  --background-gradient: linear-gradient(180deg,#7941ad 0%, #E5D4D1 15%,#B8AAC5 25%, #7A688B 100%);
+  --open-sans: 'Open Sans', sans-serif;
 }
 
 * {
@@ -14,10 +16,11 @@
 }
 
 body {
-  background: var(--light-pink);
+  background: var(--light-purple);
   padding-left: 50px;
   padding-right: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px var(--open-sans);
+  min-height: 100vh;
 }
 
 header {
@@ -25,13 +28,12 @@ header {
 }
 
 table {
+  border-collapse: collapse;
   width: 100%;
+  min-height: 150px;
 }
 
-table,
-th,
-td {
-  border-collapse: collapse;
+th, td {
   padding: 10px;
   border:1px solid;
 }
@@ -39,7 +41,6 @@ td {
 th {
   text-transform: uppercase;
 }
-
 
 label {
   display: block;
@@ -53,6 +54,7 @@ nav {
   max-width: 100%;
   display: flex;
   justify-content: space-between;
+  font-weight: bold;
 }
 
 .left-nav,
@@ -71,8 +73,9 @@ nav {
 
 .left-nav a:hover,
 .right-nav a:hover {
-  background: gray;
+  background: var(--light-green);
   border-radius: 10px;
+  color: var(--black);
 }
 
 .right-nav a {
@@ -84,20 +87,12 @@ nav {
 
 .google-user-nav {
   border-radius: 50%;
-  height: 30px;
+  height: 45px;
   margin-right: 10px;
 }
 
 #title-header {
-  background-image: var(--gradient);
-  background-color: var(--dark-green);
-  background-image: var(--gradient);
-  background-size: 100%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-background-clip: text;
-  -moz-text-fill-color: transparent;
+  color: var(--black);
   text-align: center;
   font-size: 50px;
   font-family: "Abril Fatface", serif;
@@ -117,7 +112,7 @@ nav {
   background-color: var(--light-green);
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 890px;
+  width: 80%;
 }
 
 /* button styling */
@@ -171,10 +166,10 @@ button:hover,
   background-color: maroon;
 }
 
-.selector:hover {
+/* .selector:hover {
   cursor: pointer;
   background-color: white;
-}
+} */
 
 .login img {
   height: 30px;
@@ -205,13 +200,33 @@ button:hover,
 .sort-container {
   display: flex;
   justify-content:flex-end;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
 }
-.filter-label {
+
+/* .filter-label {
   margin: 10px;
   font-size: 12px;
-}
+} */
 
 .filter-dropdown {
   margin-right: 10px;
+  width: 150px;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.credits-container {
+display: flex;
+flex-direction: column;
+margin-top: 20px;
+}
+
+.credits-title {
+text-decoration: underline;
+}
+
+.credits {
+  list-style: none;
+  padding: 0;
+  margin-top: -5px;
 }
