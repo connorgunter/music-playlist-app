@@ -172,15 +172,14 @@ button,
 .btn-link {
   background-color: var(--dark-green);
   color: white;
-  border-radius: 10px;
   padding: 10px 15px;
+  border-radius: 10px;
   cursor: pointer;
   text-transform: uppercase;
 }
 
 button {
   border-width: 0;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 .btn-link {
@@ -284,4 +283,9 @@ button:hover,
   list-style: none;
   padding: 0;
   margin-top: -5px;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
 }
