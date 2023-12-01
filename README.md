@@ -5,7 +5,7 @@ BeatBuddy redefines the music playlist experience, offering users seamless contr
 Link to our trello board:
 [BeatBuddy Trello Board](https://trello.com/b/iV49Zb33/music-playlist-app-project-2)
 
-Link to our app in Heroku:
+Link to our app deployed on Heroku:
 [Heroku](https://beatbuddy-7a9e4cc3fd5d.herokuapp.com/)
 
 
@@ -69,6 +69,9 @@ The team would like to thank Last.FM for their collaboration and assistance in m
 # Icebox features: 🧊
 - **Collaborative Playlist Editing: Enhance your playlist creation experience by adding collaborators.**
 - **Playlist Likes and Trends: Introduce a 'like' feature for playlists, showcasing the trendiest lists on the main screen.**
+- **Fix table stying when you're in a different user's playlist show page AND it has more than 1 song**
+- **Fix spacing of credits in footer. Currently it is too far below the page**
+- **Allow for adding a song where the title contains a '/'**
 
 
 
