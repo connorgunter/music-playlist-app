@@ -12,23 +12,23 @@ Link to our app in Heroku:
 
 
 
-💻# Technologies used: 💻
+# Technologies used: 💻
 - **Node.js**: 
 - **Express**: 
 - **MongoDB**: 
 - **Last.FM_API**:
 
-🚀# App creators: 🚀
+# App creators: 🚀
 Zach Kurfirst
 Brandon Song
 Connor Gunter
 Richard (Nick) Vanderipe
 
 
-🙌# Acknowledgments 🙌
+# Acknowledgments 🙌
 The team would like to thank Last.FM for their collaboration and assistance in making BeatBuddy a success. Their API played a crucial role in shaping the app's functionality, enriching the user experience.
 
-🧊# Icebox features: 🧊
+# Icebox features: 🧊
 Collaborative Playlist Editing: Add collaborators to enhance the playlist creation experience.
 Playlist Likes and Trends: Introduce a 'like' feature for playlists, showcasing the trendiest lists on the main screen. 
 
