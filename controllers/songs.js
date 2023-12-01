@@ -95,8 +95,29 @@ async function addToPlaylist(req, res) {
   }
 }
 
+async function deleteSong(req, res) {
+  try {
+    const playlist = await Playlist.findById(req.params.id);
+    console.log("PLAYLISTID", playlist);
+    const songId = req.params.songId;
+    console.log("SONGID", songId);
+    req.body.user = req.user._id;
+    req.body.userName = req.user.name;
+    req.body.userAvatar = req.user.avatar;
+    const songIdx = playlist.songs.findIndex(
+      (song) => song._id.toString() === songId
+    );
+    playlist.songs.splice(songIdx, 1);
+    await playlist.save();
+    res.redirect(`/playlists/${playlist._id}`);
+  } catch (err) {
+    console.log("index error", err);
+  }
+}
+
 module.exports = {
   newSongs,
   search,
   addToPlaylist,
+  deleteSong,
 };
