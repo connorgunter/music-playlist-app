@@ -28,7 +28,7 @@ Users have the creative freedom to craft new playlists by clicking on the "Creat
 # 4. Playlist Details:
 Delve into the details of your playlists with the "Details" option. View and interact with playlist information, including name, description, mood, and the list of songs. Play, delete, edit, or add songs to curate the perfect musical experience.
 
-<img width="1419" alt="Screen Shot 2023-11-30 at 10 41 39 PM" src="https://github.com/connorgunter/music-playlist-app/assets/31771870/23b3672e-3a2e-46f2-a46c-534f83ee55f8">
+![Screen Shot 2023-12-01 at 9 10 23 AM](https://github.com/connorgunter/music-playlist-app/assets/31771870/cb40cbf1-cb29-426b-98ad-b269682f7bc1)
 
 # 5. Add Songs:
 Enhance your playlists by seamlessly adding songs through the "Add Songs" feature. A user-friendly search interface allows you to explore and add songs to your playlists effortlessly.
