@@ -58,18 +58,16 @@ async function addToPlaylist(req, res) {
   const playlist = await Playlist.findById(req.params.id);
   const { name, artist } = req.params;
   try {
-    fetch(
+    const response = await fetch(
       `${ROOT_URL}/?method=track.getInfo&api_key=${token}&artist=${artist}&track=${name}&format=json`
-    )
-      .then((res) => res.json())
-      .then((songData) => {
-        playlist.songs.push({
-          name: songData.track.name,
-          artist: songData.track.artist.name,
-          url: songData.track.url,
-        });
-        playlist.save();
-      });
+    );
+    const songData = await response.json();
+    playlist.songs.push({
+      name: songData.track.name,
+      artist: songData.track.artist.name,
+      url: songData.track.url,
+    });
+    await playlist.save();
     fetch(
       `${ROOT_URL}/?method=track.search&track=${q}&api_key=${token}&format=json&limit=10`
     )
@@ -85,6 +83,8 @@ async function addToPlaylist(req, res) {
           errorMsg: "",
           queryData,
           playlist,
+          response,
+          songData,
           results,
           q,
           isSongInPlaylist,
