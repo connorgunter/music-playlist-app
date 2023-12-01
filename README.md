@@ -1,7 +1,7 @@
-🎶 # About BeatBuddy 🎶
+# About BeatBuddy 🎶
 BeatBuddy redefines the music playlist experience, offering users seamless control over their personal musical journeys. Our innovative app empowers users to effortlessly manage and curate their playlists, allowing them to add and play their favorite songs with ease. Dive into a world where music meets intuitive playlist management, and let BeatBuddy elevate your musical experience to new heights.
 
-👉# Getting started: 👈
+# Getting started: 👈
 Link to our trello board:
 [BeatBuddy Trello Board](https://trello.com/b/iV49Zb33/music-playlist-app-project-2)
 
