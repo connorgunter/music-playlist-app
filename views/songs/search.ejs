@@ -1,12 +1,13 @@
 <%- include('../partials/header') %>
 <div class="main-container">
   <div class="table-container">
-<form method="GET" action="/playlists/<%= playlist.id%>/search/results">
-  <input type="text" name="q" placeholder="Search for a song..." required/>
-  <button type="submit">Search</button>
+    <div class="search-container">
+    <form method="GET" action="/playlists/<%= playlist.id%>/search/results">
+  <input class="search-input search-form" type="text" name="q" placeholder="Search for a song..." required/>
+  <button type="submit" class="btn-lg">Search</button>
 </form><br>
-<a href="/playlists/<%=playlist.id%>" class="btn-link">Return to Playlist</a>
-
+<a href="/playlists/<%=playlist.id%>" class="btn-link btn-lg">Return to Playlist</a>
+</div>
 <p><%= errorMsg %></p>
 
 <div class="query-data">
@@ -27,7 +28,7 @@
           <td><a href="<%= r.url %>" target="_blank" class="btn-link">Play Song</a></td>
           <td>
             <% if (isSongInPlaylist(playlist, r)) { %>
-              <button type="button" class="btn-added">+ Added</button>
+              <button type="button" class="btn-added">Added</button>
             <% } else {%>
             <form method="POST" action="/playlists/<%= playlist.id%>/songs/<%= r.safe_name %>/<%= r.artist %>">
               <button type="submit" class="btn-add">+ Add</button>

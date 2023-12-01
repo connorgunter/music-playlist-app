@@ -3,15 +3,15 @@
 <form id="create-form" action="/playlists" method="POST">
   <div>
     <label for="name">Name:</label>
-    <input type="text" name="name" id="name" required/>
+    <input class="form-input" type="text" name="name" id="name" required/>
   </div><br>
   <div>
     <label for="description">Description:</label>
-    <textarea name="description" cols="30" rows="2" id="description" required></textarea>
+    <textarea class="form-textarea" name="description" cols="30" rows="2" id="description" required></textarea>
   </div><br>
   <div>
     <label for="mood">Mood:</label>
-    <select name="mood" id="mood">
+    <select class="form-select" name="mood" id="mood">
         <option value="Chill">Chill</option>
         <option value="Cozy">Cozy</option>
         <option value="Feel-good">Feel-good</option>
@@ -24,7 +24,7 @@
         <option value="Workout">Workout</option>
     </select>
   </div><br>
-  <button id="create-button" type="submit">Create Playlist</button>
+  <button class="btn-lg" type="submit">Create Playlist</button>
 </form>
 <p><%= errorMsg %></p>
 </div>

@@ -6,9 +6,15 @@
   --bright-green: #70eacc;
   --light-green: #dbf2e1;
   --light-pink: #e5d4d1;
-  --gradient: linear-gradient(to right, #24777d,#b8aac5, #7a688b);
-  --background-gradient: linear-gradient(180deg,#7941ad 0%, #E5D4D1 15%,#B8AAC5 25%, #7A688B 100%);
-  --open-sans: 'Open Sans', sans-serif;
+  --gradient: linear-gradient(to right, #24777d, #b8aac5, #7a688b);
+  --background-gradient: linear-gradient(
+    180deg,
+    #7941ad 0%,
+    #e5d4d1 15%,
+    #b8aac5 25%,
+    #7a688b 100%
+  );
+  --open-sans: "Open Sans", sans-serif;
 }
 
 * {
@@ -16,7 +22,7 @@
 }
 
 body {
-  background: var(--light-purple);
+  background: #a18cb4;
   padding-left: 50px;
   padding-right: 50px;
   font: 14px var(--open-sans);
@@ -33,9 +39,10 @@ table {
   min-height: 150px;
 }
 
-th, td {
+th,
+td {
   padding: 10px;
-  border:1px solid;
+  border: 1px solid;
 }
 
 th {
@@ -45,6 +52,7 @@ th {
 label {
   display: block;
   font-weight: bold;
+  font-size: 20px;
 }
 
 nav {
@@ -104,15 +112,58 @@ nav {
   align-items: center;
 }
 
+.table-container {
+  text-align: center;
+}
+
 .table-container,
 #create-form,
 #edit-form {
-  text-align: center;
   padding: 20px;
   background-color: var(--light-green);
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   width: 80%;
+}
+
+.search-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-form {
+  width: 400px;
+}
+
+/* select {
+  margin: 0;
+  background-image: linear-gradient(45deg, transparent 50%, gray 50%),
+    linear-gradient(135deg, gray 50%, transparent 50%),
+    radial-gradient(#ddd 70%, transparent 72%);
+  background-position: calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px), calc(100% - 0.5em) 0.5em;
+  background-size: 5px 5px, 5px 5px, 1.5em 1.5em;
+  background-repeat: no-repeat;
+} */
+
+.form-input,
+.form-textarea,
+.form-select {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--dark-green);
+  padding: 10px;
+  font: var(--open-sans);
+  font-size: 18px;
+}
+
+.search-input {
+  /* width: 50%; */
+  border-radius: 10px;
+  border: 1px solid var(--dark-green);
+  padding: 10px;
+  font: var(--open-sans);
+  font-size: 18px;
 }
 
 /* button styling */
@@ -147,6 +198,10 @@ button {
 
 .btn-delete {
   background-color: red;
+}
+
+.btn-lg {
+  font-size: 18px;
 }
 
 button:hover,
@@ -199,7 +254,7 @@ button:hover,
 
 .sort-container {
   display: flex;
-  justify-content:flex-end;
+  justify-content: flex-end;
   margin-bottom: 15px;
 }
 
@@ -216,13 +271,13 @@ button:hover,
 }
 
 .credits-container {
-display: flex;
-flex-direction: column;
-margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
 }
 
 .credits-title {
-text-decoration: underline;
+  text-decoration: underline;
 }
 
 .credits {
