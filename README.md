@@ -6,7 +6,7 @@ Link to our trello board:
 [BeatBuddy Trello Board](https://trello.com/b/iV49Zb33/music-playlist-app-project-2)
 
 Link to our app in Heroku:
-
+[Heroku](https://beatbuddy-7a9e4cc3fd5d.herokuapp.com/)
 
 #Screenshot of our app:
 
