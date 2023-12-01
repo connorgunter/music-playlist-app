@@ -22,7 +22,7 @@
 }
 
 body {
-  background: #a18cb4;
+  background:  var(--background-gradient);
   padding-left: 50px;
   padding-right: 50px;
   font: 14px var(--open-sans);
@@ -36,7 +36,7 @@ header {
 table {
   border-collapse: collapse;
   width: 100%;
-  min-height: 150px;
+  min-height: 100px;
 }
 
 th,
