@@ -59,6 +59,10 @@ Tailor your playlists to your evolving tastes by utilizing the "Edit Playlist" f
 - **Express**
 - **MongoDB**
 - **Last.FM_API**
+- **HTML5**
+- **CSS**
+- **Javascript**
+- **OAuth**
 
 # App creators: 🚀
 - **Zach Kurfirst**
