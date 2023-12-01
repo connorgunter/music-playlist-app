@@ -4,7 +4,8 @@
 <form method="GET" action="/playlists/<%= playlist.id%>/search/results">
   <input type="text" name="q" placeholder="Search for a song..." required/>
   <button type="submit">Search</button>
-</form>
+</form><br>
+<a href="/playlists/<%=playlist.id%>" class="btn-link">Return to Playlist</a>
 
 <p><%= errorMsg %></p>
 
@@ -25,19 +26,19 @@
           <td><%= r.artist %></td>
           <td><a href="<%= r.url %>" target="_blank" class="btn-link">Play Song</a></td>
           <td>
+            <% if (isSongInPlaylist(playlist, r)) { %>
+              <button type="button" class="btn-added">+ Added</button>
+            <% } else {%>
             <form method="POST" action="/playlists/<%= playlist.id%>/songs/<%= r.safe_name %>/<%= r.artist %>">
               <button type="submit" class="btn-add">+ Add</button>
             </form>
+            <%}%>
           </td>
         </tr>
  <% }) %>
   </tbody>
   </table>
 <% } else { %>
-  <!-- Note: unnecessary?
-  <h3>
-    Search a song!
-  </h3> -->
 <% } %>
 </div>
 </div>

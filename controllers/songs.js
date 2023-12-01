@@ -1,5 +1,3 @@
-// const Song = require("../models/api");
-// const fetch = require("node-fetch");
 const Playlist = require("../models/playlist");
 const token = process.env.LASTFM_TOKEN;
 const ROOT_URL = "https://ws.audioscrobbler.com/2.0";
@@ -29,7 +27,7 @@ async function search(req, res, queryData) {
       .then((queryData) => {
         const results = queryData.results.trackmatches.track.map((r) => {
           r.safe_name = r.name.replace(/\?/g, "%3F");
-          
+          r.safe_artist = r.artist.replace(/\?/g, "%3F");
           return r;
         });
         res.render("songs/search", {
@@ -38,6 +36,7 @@ async function search(req, res, queryData) {
           queryData,
           playlist,
           results,
+          isSongInPlaylist,
         });
       });
   } catch (err) {
@@ -45,11 +44,17 @@ async function search(req, res, queryData) {
   }
 }
 
+function isSongInPlaylist(playlist, r) {
+  for (const s of playlist.songs) {
+    if (s.url === r.url) {
+      return true;
+    }
+  }
+}
 
 async function addToPlaylist(req, res) {
   const playlist = await Playlist.findById(req.params.id);
   const { name, artist } = req.params;
-  
   try {
     fetch(
       `${ROOT_URL}/?method=track.getInfo&api_key=${token}&artist=${artist}&track=${name}&format=json`
@@ -64,12 +69,30 @@ async function addToPlaylist(req, res) {
         playlist.save();
         console.log(songData.track);
       });
-    
-    res.redirect(`/playlists/${playlist._id}/search`);
+    fetch(
+      `${ROOT_URL}/?method=track.search&track=${q}&api_key=${token}&format=json&limit=10`
+    )
+      .then((res) => res.json())
+      .then((queryData) => {
+        const results = queryData.results.trackmatches.track.map((r) => {
+          r.safe_name = r.name.replace(/\?/g, "%3F");
+          r.safe_artist = r.artist.replace(/\?/g, "%3F");
+          return r;
+        });
+        res.render("songs/search", {
+          title: `Search Results: ${q}`,
+          errorMsg: "",
+          queryData,
+          playlist,
+          results,
+          isSongInPlaylist,
+        });
+      });
   } catch (err) {
     console.log(err);
   }
 }
+
 module.exports = {
   newSongs,
   search,
