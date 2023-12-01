@@ -36,7 +36,7 @@ Enhance your playlists by seamlessly adding songs through the "Add Songs" featur
 <img width="1419" alt="Screen Shot 2023-11-30 at 10 41 54 PM" src="https://github.com/connorgunter/music-playlist-app/assets/31771870/947c0081-b8b7-4950-9b1d-8646102152ab">
 
 # 6. Search Results:
-Efficiently search for your favorite songs, review search results, and promptly add them to your playlist. The interface provides a smooth experience, allowing you to play or confirm the addition of songs to your curated list.
+Efficiently search for your favorite songs, review search results, and promptly add them to your playlist. The interface provides a smooth experience, allowing you to play or confirm the addition of songs to your curated list. But DO NOT ADD A SONG IF TITLE HAS '/'!!!
 
 <img width="1419" alt="Screen Shot 2023-11-30 at 10 42 11 PM" src="https://github.com/connorgunter/music-playlist-app/assets/31771870/0541eccf-711d-47e0-8c43-83274e9fd841">
 
