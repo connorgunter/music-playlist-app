@@ -1,18 +1,18 @@
 <%- include('../partials/header') %>
-<div class="main-container"
+<div class="main-container">
 <%if (user && playlist.user.equals(user._id)){%>
-<form id="edit-form" action="/playlists/<%= playlist.id %>?_method=PUT" method="POST">
+  <form id="edit-form" action="/playlists/<%= playlist.id %>?_method=PUT" method="POST">
   <div>
     <label for="name">Edit Name:</label>
-    <input type="text" name="name" id="name" value="<%= playlist.name %>" required/>
+    <input class="form-input" type="text" name="name" id="name" value="<%= playlist.name %>" required/>
   </div><br>
   <div>
     <label for="description">Edit Description:</label>
-    <textarea name="description" cols="30" rows="2" id="description" required><%= playlist.description %></textarea>
+    <textarea class="form-textarea" name="description" cols="30" rows="2" id="description" required><%= playlist.description %></textarea>
   </div><br>
   <div>
     <label for="mood">Edit Mood:</label>
-    <select name="mood" id="mood">
+    <select class="form-select" name="mood" id="mood">
         <!-- TODO: Look into prettier formatting error -->
         <option value="Chill" <%= playlist.mood === 'Chill' ? 'selected' : '' %>>Chill</option>
         <option value="Cozy" <%= playlist.mood === 'Cozy' ? 'selected' : '' %>>Cozy</option>
@@ -26,7 +26,7 @@
         <option value="Workout" <%= playlist.mood === 'Workout' ? 'selected' : '' %>>Workout</option>
     </select>
   </div><br>
-  <button class="btn-edit" type="submit">Update Playlist</button>
+  <button class="btn-edit btn-lg" type="submit">Update Playlist</button>
 </form>
 <p><%= errorMsg %></p>
 <% } else { %>

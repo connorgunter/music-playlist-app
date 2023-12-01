@@ -1,5 +1,3 @@
-// const Song = require("../models/api");
-// const fetch = require("node-fetch");
 const Playlist = require("../models/playlist");
 const token = process.env.LASTFM_TOKEN;
 const ROOT_URL = "https://ws.audioscrobbler.com/2.0";
@@ -29,7 +27,7 @@ async function search(req, res, queryData) {
       .then((queryData) => {
         const results = queryData.results.trackmatches.track.map((r) => {
           r.safe_name = r.name.replace(/\?/g, "%3F");
-          
+          r.safe_artist = r.artist.replace(/\?/g, "%3F");
           return r;
         });
         res.render("songs/search", {
@@ -38,6 +36,8 @@ async function search(req, res, queryData) {
           queryData,
           playlist,
           results,
+          q,
+          isSongInPlaylist,
         });
       });
   } catch (err) {
@@ -45,33 +45,79 @@ async function search(req, res, queryData) {
   }
 }
 
+function isSongInPlaylist(playlist, r) {
+  for (const s of playlist.songs) {
+    if (s.url === r.url) {
+      return true;
+    }
+  }
+}
 
 async function addToPlaylist(req, res) {
+  const q = req.body.q;
   const playlist = await Playlist.findById(req.params.id);
   const { name, artist } = req.params;
-  
   try {
-    fetch(
+    const response = await fetch(
       `${ROOT_URL}/?method=track.getInfo&api_key=${token}&artist=${artist}&track=${name}&format=json`
+    );
+    const songData = await response.json();
+    playlist.songs.push({
+      name: songData.track.name,
+      artist: songData.track.artist.name,
+      url: songData.track.url,
+    });
+    await playlist.save();
+    fetch(
+      `${ROOT_URL}/?method=track.search&track=${q}&api_key=${token}&format=json&limit=10`
     )
       .then((res) => res.json())
-      .then((songData) => {
-        playlist.songs.push({
-          name: songData.track.name,
-          artist: songData.track.artist.name,
-          url: songData.track.url,
+      .then((queryData) => {
+        const results = queryData.results.trackmatches.track.map((r) => {
+          r.safe_name = r.name.replace(/\?/g, "%3F");
+          r.safe_artist = r.artist.replace(/\?/g, "%3F");
+          return r;
         });
-        playlist.save();
-        console.log(songData.track);
+        res.render("songs/search", {
+          title: `Search Results: ${q}`,
+          errorMsg: "",
+          queryData,
+          playlist,
+          response,
+          songData,
+          results,
+          q,
+          isSongInPlaylist,
+        });
       });
-    
-    res.redirect(`/playlists/${playlist._id}/search`);
   } catch (err) {
     console.log(err);
   }
 }
+
+async function deleteSong(req, res) {
+  try {
+    const playlist = await Playlist.findById(req.params.id);
+    console.log("PLAYLISTID", playlist);
+    const songId = req.params.songId;
+    console.log("SONGID", songId);
+    req.body.user = req.user._id;
+    req.body.userName = req.user.name;
+    req.body.userAvatar = req.user.avatar;
+    const songIdx = playlist.songs.findIndex(
+      (song) => song._id.toString() === songId
+    );
+    playlist.songs.splice(songIdx, 1);
+    await playlist.save();
+    res.redirect(`/playlists/${playlist._id}`);
+  } catch (err) {
+    console.log("index error", err);
+  }
+}
+
 module.exports = {
   newSongs,
   search,
   addToPlaylist,
+  deleteSong,
 };
