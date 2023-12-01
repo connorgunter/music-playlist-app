@@ -197,6 +197,8 @@ button {
 
 .btn-delete {
   background-color: red;
+  margin: 0px 10px;
+  
 }
 
 .btn-lg {
@@ -288,4 +290,24 @@ button:hover,
 .search-form {
   display: flex;
   align-items: center;
+}
+
+.edit-page {
+  font-size: 18px;
+  text-align: left;
+}
+
+.edit-page-btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit-page-btns a {
+  margin: 0 10px;
+}
+
+.song-label {
+  text-align: center;
+  font-size: 18px;
 }
