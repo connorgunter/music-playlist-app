@@ -36,6 +36,7 @@ async function search(req, res, queryData) {
           queryData,
           playlist,
           results,
+          q,
           isSongInPlaylist,
         });
       });
@@ -53,6 +54,7 @@ function isSongInPlaylist(playlist, r) {
 }
 
 async function addToPlaylist(req, res) {
+  const q = req.body.q;
   const playlist = await Playlist.findById(req.params.id);
   const { name, artist } = req.params;
   try {
@@ -67,7 +69,6 @@ async function addToPlaylist(req, res) {
           url: songData.track.url,
         });
         playlist.save();
-        console.log(songData.track);
       });
     fetch(
       `${ROOT_URL}/?method=track.search&track=${q}&api_key=${token}&format=json&limit=10`
@@ -85,6 +86,7 @@ async function addToPlaylist(req, res) {
           queryData,
           playlist,
           results,
+          q,
           isSongInPlaylist,
         });
       });

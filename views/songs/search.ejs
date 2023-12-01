@@ -30,6 +30,7 @@
               <button type="button" class="btn-added">+ Added</button>
             <% } else {%>
             <form method="POST" action="/playlists/<%= playlist.id%>/songs/<%= r.safe_name %>/<%= r.artist %>">
+              <input type="text" value="<%=q%>" name="q" hidden>
               <button type="submit" class="btn-add">+ Add</button>
             </form>
             <%}%>
