@@ -7,7 +7,7 @@
       <tr>
         <th>Playlist Name</th>
         <th>Description</th>
-        <th>Mood</th>
+        <th class="mood-table">Mood</th>
         <th>Created</th>
         <th colspan="2">Actions</th>
       </tr>
@@ -17,7 +17,7 @@
         <tr class="selector">
         <td><%= p.name %></td>
         <td><%= p.description %></td>
-        <td><%= p.mood %></td>
+        <td class="mood-table"><%= p.mood %></td>
         <td><%= p.createdAt.toLocaleDateString() %></td>
         <td>
           <a href="/playlists/<%= p.id %>" class="btn-link">DETAILS</a>

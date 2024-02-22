@@ -101,7 +101,7 @@ nav {
   background-color: var(--light-green);
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 95%;
+  /* width: 95%; */
 }
 
 .search-container {
@@ -298,3 +298,21 @@ button:hover,
 .edit-page-left {
   gap: 20px;
 }
+
+@media screen and (max-width: 768px) {
+  .table-container th:nth-child(3),
+  .table-container td:nth-child(3) {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .table-container th:nth-child(4),
+  .table-container td:nth-child(4),
+  .table-container th:nth-child(5),
+  .table-container td:nth-child(5) {
+    display: none;
+  }
+  
+}
+
