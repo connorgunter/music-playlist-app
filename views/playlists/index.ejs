@@ -1,37 +1,37 @@
 <% if (user){%>
-<%- include('../partials/header') %>
-<div class="main-container">
-<div class="table-container">
-  <table>
-    <thead>
-      <tr>
-        <th>Playlist Name</th>
-        <th>Description</th>
-        <th class="mood-table">Mood</th>
-        <th>Created</th>
-        <th colspan="2">Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% myPlaylists.forEach(function(p){%>
-        <tr class="selector">
-        <td><%= p.name %></td>
-        <td><%= p.description %></td>
-        <td class="mood-table"><%= p.mood %></td>
-        <td><%= p.createdAt.toLocaleDateString() %></td>
-        <td>
-          <a href="/playlists/<%= p.id %>" class="btn-link">DETAILS</a>
-        </td>
-        <td>
-            <form method="POST" action="/playlists/<%= p.id %>/?_method=DELETE">
-                <button type="submit" class="btn-delete">X</button>
-            </form>
-        </td>
-        <%}) %>
-      </tr>
-    </tbody>
-  </table>
-</div>
-</div>
-<%- include('../partials/footer') %>
-<%}%>
+  <%- include(‘../partials/header’) %>
+  <div class="main-container">
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Playlist Name</th>
+          <th>Description</th>
+          <th class="mood-table">Mood</th>
+          <th>Created</th>
+          <th colspan="2">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% myPlaylists.forEach(function(p){%>
+          <tr class="selector">
+          <td><%= p.name %></td>
+          <td class="hide-description"><%= p.description %></td>
+          <td class="hide-mood"><%= p.mood %></td>
+          <td><%= p.createdAt.toLocaleDateString() %></td>
+          <td>
+            <a href="/playlists/<%= p.id %>" class="btn-link">DETAILS</a>
+          </td>
+          <td>
+              <form method="POST" action="/playlists/<%= p.id %>/?_method=DELETE">
+                  <button type=“submit” class=“btn-delete”>X</button>
+              </form>
+          </td>
+          <%}) %>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+  <%- include('../partials/footer') %>
+  <%}%>  
