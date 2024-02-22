@@ -101,7 +101,7 @@ nav {
   background-color: var(--light-green);
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 95%;
+  /* width: 95%; */
 }
 
 .search-container {
@@ -297,4 +297,38 @@ button:hover,
 
 .edit-page-left {
   gap: 20px;
+}
+
+/* up until lg screens */
+@media only screen and (max-width: 1023px) {
+  .hide-description {
+    display: none;
+  }
+}
+
+/* up until md screens */
+@media only screen and (max-width: 767px) {
+  .hide-created {
+    display: none;
+  }
+}
+
+/* up until sm screens */
+@media only screen and (max-width: 639px) {
+  .hide-mood {
+    display: none;
+  }
+  .table-container {
+    font-size: 12px;
+  }
+  .playlist-name {
+    max-width: 0px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .main-container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }

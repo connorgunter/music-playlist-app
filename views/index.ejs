@@ -24,9 +24,9 @@
         <tr>
           <th>User</th>
           <th>Playlist Name</th>
-          <th>Description</th>
-          <th>Mood</th>
-          <th>Created</th>
+          <th class="hide-description">Description</th>
+          <th class="hide-mood">Mood</th>
+          <th class="hide-created">Created</th>
           <th>Details</th>
         </tr>
       </thead>
@@ -40,10 +40,10 @@
               referrerpolicy="no-referrer"
             /><%= p.userName %>
           </td>
-          <td><%= p.name %></td>
-          <td><%= p.description %></td>
-          <td><%= p.mood %></td>
-          <td><%= p.createdAt.toLocaleDateString() %></td>
+          <td class="playlist-name"><%= p.name %></td>
+          <td class="hide-description"><%= p.description %></td>
+          <td class="hide-mood"><%= p.mood %></td>
+          <td class="hide-created"><%= p.createdAt.toLocaleDateString() %></td>
           <td>
             <a href="/playlists/<%= p.id %>" class="btn-link">DETAILS</a>
           </td>
