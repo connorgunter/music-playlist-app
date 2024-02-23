@@ -59,9 +59,10 @@ nav {
 
 .left-nav a:hover,
 .right-nav a:hover {
-  background: var(--light-green);
-  border-radius: 10px;
+  /* background: var(--light-green);
+  border-radius: 10px; */
   color: var(--black);
+  text-decoration: underline;
 }
 
 .right-nav a {
